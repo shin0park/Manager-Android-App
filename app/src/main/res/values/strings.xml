@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MoblieProgramming_SYJY</string>
+    <string name="title_home">홈</string>
+    <string name="title_board">게시판</string>
+    <string name="title_schedule">시간표</string>
+    <string name="title_calendar">캘린더</string>
+    <string name="title_notice">공지사항</string>
 </resources>
