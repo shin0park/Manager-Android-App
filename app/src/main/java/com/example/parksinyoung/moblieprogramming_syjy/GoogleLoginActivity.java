@@ -48,8 +48,9 @@ public class GoogleLoginActivity extends BaseActivity implements
 
         // Button listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-        findViewById(R.id.sign_out_button).setOnClickListener(this);
-        findViewById(R.id.disconnect_button).setOnClickListener(this);
+        //로그아웃 버튼 나중에구현
+//        findViewById(R.id.sign_out_button).setOnClickListener(this);
+//        findViewById(R.id.disconnect_button).setOnClickListener(this);
 
         // [START config_signin]
         // Configure Google Sign In
@@ -100,7 +101,7 @@ public class GoogleLoginActivity extends BaseActivity implements
     }
     // [END onactivityresult]
 
-    // [START auth_with_google]
+
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
         // [START_EXCLUDE silent]
@@ -118,8 +119,11 @@ public class GoogleLoginActivity extends BaseActivity implements
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             assert user != null;
+                            //로그인 성공 표시
                             Toast.makeText(getApplicationContext(),user.getDisplayName()+"님이 로그인 하셨습니다.",Toast.LENGTH_SHORT).show();
                             updateUI(user);
+                            //로그인 성공 이후 MainActivity 로 화면이동
+                            next();
                         } else {
                             //로그인 실패
                             // If sign in fails, display a message to the user.
@@ -134,8 +138,12 @@ public class GoogleLoginActivity extends BaseActivity implements
                     }
                 });
     }
-    // [END auth_with_google]
 
+    //로그인 성공 이후 MainActivity 로 화면이동
+    private void next(){
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(intent);
+    }
     // [START signin]
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -175,12 +183,12 @@ public class GoogleLoginActivity extends BaseActivity implements
         hideProgressDialog();
         //로그인 후
         if (user != null) {
-            findViewById(R.id.sign_in_button).setVisibility(View.GONE);
-            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
+//            findViewById(R.id.sign_in_button).setVisibility(View.GONE);
+//            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.VISIBLE);
         } else {
             //로그인 후
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
+//            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
         }
     }
 
@@ -189,11 +197,13 @@ public class GoogleLoginActivity extends BaseActivity implements
         int i = v.getId();
         if (i == R.id.sign_in_button) {
             signIn();
-        } else if (i == R.id.sign_out_button) {
-            signOut();
-        } else if (i == R.id.disconnect_button) {
-            revokeAccess();
         }
+        //로그아웃 버튼 나중에 구현
+//        else if (i == R.id.sign_out_button) {
+//            signOut();
+//        } else if (i == R.id.disconnect_button) {
+//            revokeAccess();
+//        }
     }
 }
 
