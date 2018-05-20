@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "495490733520",
+    "firebase_url": "https://manager-40bbc.firebaseio.com",
+    "project_id": "manager-40bbc",
+    "storage_bucket": "manager-40bbc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495490733520:android:12e3b478d1bb4800",
+        "android_client_info": {
+          "package_name": "com.example.parksinyoung.moblieprogramming_syjy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "495490733520-rq7a58p0vpbjbl6f1v8gjh87plssak69.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.parksinyoung.moblieprogramming_syjy",
+            "certificate_hash": "bca738544e2f0e5ce0178c8d8c2c8f48d1b7c381"
+          }
+        },
+        {
+          "client_id": "495490733520-e6leb009qj67sdptf5uo49v4qqptq8pe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe168tB-FvXHFx030lGgbWlSYvHmqC6g0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "495490733520-e6leb009qj67sdptf5uo49v4qqptq8pe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

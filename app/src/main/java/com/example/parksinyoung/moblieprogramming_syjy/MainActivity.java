@@ -7,17 +7,16 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
-    private BottomNavigationView mBottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBottomNavigationView = findViewById(R.id.main_bnv);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.main_bnv);
 
-        BottomNavigationViewHelper.removeShiftMode(mBottomNavigationView);
-        mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {

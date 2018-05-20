@@ -1,35 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/todo"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:src="@drawable/manager_logo3" />
 
-        <ImageView
-            android:id="@+id/logo_image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerInParent="true"
-            android:layout_centerVertical="true"
-            android:scaleX="0.7"
-            android:scaleY="0.7"
-            android:src="@drawable/manager_logo3" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/sign_in_with_google"
+        android:textColor="@color/bottom_state_checked"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/sign_out_and_disconnect"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:visibility="gone"
+        tools:visibility="visible">
 
         <Button
-            android:id="@+id/login_button"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/radius_corner_button"
-            android:text="@string/sign_in_with_google"
-            android:textColor="@color/bottom_state_checked" />
+            android:id="@+id/sign_out_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/sign_out_with_google"
+            android:textColor="@color/bottom_state_checked"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-    </RelativeLayout>
-</FrameLayout>
+        <Button
+            android:id="@+id/disconnect_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="disconnect" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
