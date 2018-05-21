@@ -30,6 +30,7 @@
     </style>
     <style name="Button" parent="Base.Widget.AppCompat.Button">
     </style>
+
     <style name="Button.Branded" parent="Button">
         <item name="colorButtonNormal">#ffffff</item>
     </style>
