@@ -11,16 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_alignParentTop="true"
-        android:theme="@style/TestousToolbarDarkVer" />
+        android:theme="@style/TestousToolbarDarkVer"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/title_board_e"
-        android:textColor="@color/colorBackground"
+        android:textColor="@color/colorWhite"
         android:layout_gravity="center"
         android:id="@+id/toolbar_title"
-        android:textSize="20sp" />
+        android:textSize="30sp" />
 
 
 </FrameLayout>
