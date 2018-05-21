@@ -55,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment).commit();
     }
-//action bar에 있는 설정 메뉴
+    //action bar에 있는 설정 메뉴
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // inflater함수를 이용해서 menu 리소스를 menu로 변환.
-       // getMenuInflater().inflate(R.menu.menu_action_bar, menu);
+        // getMenuInflater().inflate(R.menu.menu_action_bar, menu);
         return super.onCreateOptionsMenu(menu);
     }
     //action bar에 있는 설정메뉴 클릭시
