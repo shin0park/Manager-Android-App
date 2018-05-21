@@ -13,6 +13,9 @@
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".BaseActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".GoogleLoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
