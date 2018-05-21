@@ -3,11 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:text="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.parksinyoung.moblieprogramming_syjy.MainActivity">
 
-    <TextView
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="home Fragment" />
+        android:layout_height="56dp"
+        android:layout_alignParentTop="true"
+        android:theme="@style/TestousToolbarDarkVer"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_home_e"
+        android:textColor="@color/colorBackground"
+        android:layout_gravity="center"
+        android:id="@+id/toolbar_title"
+        android:textSize="20sp" />
 
 </FrameLayout>

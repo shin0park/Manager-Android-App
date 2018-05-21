@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+       // getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.main_bnv);
 
@@ -47,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.container, HomeFragment.newInstance()).commit();
     }
@@ -56,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment).commit();
     }
+
+
     //action bar에 있는 설정 메뉴
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // TODO Auto-generated method stub
         switch (item.getItemId()) {
+//            case R.id.home:
+//                finish();
+//                return true;
             case R.id.setting_btn:
                 // setting_btn 이 눌렸을 경우 이벤트 발생
                 Toast.makeText(getApplicationContext(),"setting 버튼 클릭.",Toast.LENGTH_SHORT).show();

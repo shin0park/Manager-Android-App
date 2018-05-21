@@ -9,4 +9,9 @@
     <string name="todo">TODO</string>
     <string name="sign_out_with_google">Sign out With Google</string>
     <string name="action_settings">setting</string>
+    <string name="title_home_e">HOME</string>
+    <string name="title_board_e">NOTICE BOARD</string>
+    <string name="title_schedule_e">SCHEDULE</string>
+    <string name="title_calendar_e">CALENDER</string>
+    <string name="title_notice_e">NOTICE</string>
 </resources>
