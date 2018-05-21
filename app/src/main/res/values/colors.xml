@@ -7,5 +7,7 @@
     <color name="bottom_state_checked">#DF4D4D</color>
     <color name="colorWhite">#F6F6F6</color>
     <color name="colorBackground">#F9E5D3</color>
+    <color name="colorwhite2">#dddddd</color>
+    <color name="colorblack">#000000</color>
 
 </resources>

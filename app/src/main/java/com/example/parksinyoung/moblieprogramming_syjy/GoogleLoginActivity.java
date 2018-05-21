@@ -32,7 +32,7 @@ public class GoogleLoginActivity extends AppCompatActivity
 
     private FirebaseAuth mFirebaseAuth;
     private GoogleApiClient mGoogleApiClient;
-    private static final String TAG = "LoginActivity";
+    private static final String TAG = "GoogleLoginActivity";
     private static final int RC_SIGN_IN = 9001;
     private ImageView logoImageView;
     private Button loginButton;

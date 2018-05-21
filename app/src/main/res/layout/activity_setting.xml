@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/account_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorwhite2"
+        android:padding="10dp"
+        android:text="계정"/>
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Button.Branded"
+        app:layout_constraintTop_toBottomOf="@id/account_text_view"
+        android:padding="10dp"
+        android:text="로그아웃"/>
+
+    <TextView
+        android:id="@+id/info_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorwhite2"
+        app:layout_constraintTop_toBottomOf="@id/logout_button"
+        android:padding="10dp"
+        android:text="정보"/>
+    <Button
+        android:id="@+id/version_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Button.Branded"
+        app:layout_constraintTop_toBottomOf="@id/info_text_view"
+        android:padding="10dp"
+        android:text="버전정보"/>
+    <Button
+        android:id="@+id/query_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Button.Branded"
+        app:layout_constraintTop_toBottomOf="@id/version_button"
+        android:padding="10dp"
+        android:text="도움말"/>
+
+    <Button
+        android:id="@+id/develop_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Button.Branded"
+        app:layout_constraintTop_toBottomOf="@id/query_button"
+        android:padding="10dp"
+        android:text="개발자"/>
+
+</android.support.constraint.ConstraintLayout>
