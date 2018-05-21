@@ -6,7 +6,7 @@
     <item
         android:id="@+id/action_one"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@drawable/home"
         android:title="@string/title_home"
         app:showAsAction="ifRoom|withText" />
 
@@ -14,25 +14,25 @@
         android:id="@+id/action_two"
         app:showAsAction="ifRoom|withText"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@drawable/schedule"
         android:title="@string/title_schedule" />
 
     <item
         android:id="@+id/action_three"
         app:showAsAction="ifRoom|withText"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@drawable/calender"
         android:title="@string/title_calendar" />
     <item
         android:id="@+id/action_four"
         app:showAsAction="always|withText"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@drawable/notice"
         android:title="@string/title_notice" />
     <item
         android:id="@+id/action_five"
         app:showAsAction="always|withText"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@drawable/board"
         android:title="@string/title_board" />
 </menu>

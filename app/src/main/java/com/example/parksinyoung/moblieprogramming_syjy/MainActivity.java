@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.action_five://게시판
                         replaceFragment(BoardFragment.newInstance());
+
                         return true;
                 }
                 return false;
