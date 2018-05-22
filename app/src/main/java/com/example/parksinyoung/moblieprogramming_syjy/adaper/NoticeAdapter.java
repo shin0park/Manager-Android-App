@@ -17,7 +17,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeHolder> {
     public NoticeAdapter(List<Notice> noticeList) {
         mNoticeList = noticeList;
     }
-
+    //view holder 객체 생성후 받는
     @Override
     public NoticeHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
@@ -25,7 +25,7 @@ public class NoticeAdapter extends RecyclerView.Adapter<NoticeHolder> {
                 .inflate(R.layout.list_item_notice,parent,false);
         return new NoticeHolder(view);
     }
-
+    //view holder의 view에 결합
     @Override
     public void onBindViewHolder(NoticeHolder holder, int position) {
         Notice notice = mNoticeList.get(position);

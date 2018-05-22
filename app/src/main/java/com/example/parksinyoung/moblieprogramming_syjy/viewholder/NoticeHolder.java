@@ -13,7 +13,7 @@ public class NoticeHolder extends RecyclerView.ViewHolder {
     private Context context;
     private Notice mNotice;
     public TextView mTitleTextView;
-
+    //viewholder는 view를 보존하는 일을 한다.
     public NoticeHolder(View itemView) {
         super(itemView);
         this.context = itemView.getContext();
@@ -25,7 +25,7 @@ public class NoticeHolder extends RecyclerView.ViewHolder {
                         .show();
             }
         });
-        mTitleTextView = (TextView) itemView.findViewById(R.id.list_item_title_text_view);
+        mTitleTextView = itemView.findViewById(R.id.list_item_title_text_view);
     }
 
     public void bindNotice(Notice notice) {

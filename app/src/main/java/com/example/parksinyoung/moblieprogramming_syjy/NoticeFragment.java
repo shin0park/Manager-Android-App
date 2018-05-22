@@ -33,14 +33,17 @@ public class NoticeFragment extends ToolBarFragment {
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState ) {
         View view = inflater.inflate(R.layout.fragment_notice, container, false);
         setToolbar();
+
+        //recyclerview 는 LayoutManager가 view위치시키는 일을 함. 설정 안할 시 작동 안함.
         mNoticeRecyclerView = view.findViewById(R.id.notice_recycler_view);
         mNoticeRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
+        //model
         mNoticeModel = NoticeModel.get(getActivity());
         mNoticeList = mNoticeModel.getNoticeList();
-
+        //adapter 생성 및 sett
         mNoticeAdapter = new NoticeAdapter(mNoticeList);
         mNoticeRecyclerView.setAdapter(mNoticeAdapter);
+
         return view;
     }
 
