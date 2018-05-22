@@ -77,26 +77,26 @@ public class MainActivity extends AppCompatActivity {
 
 
     //tool bar에 있는 설정 메뉴
-    @Override
-    public boolean onCreateOptionsMenu( Menu menu ) {
-        getMenuInflater().inflate(R.menu.menu_action_bar, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu( Menu menu ) {
+//        getMenuInflater().inflate(R.menu.menu_action_bar, menu);
+//        return true;
+//    }
 
     //tool bar에 있는 설정메뉴 클릭시
     @Override
     public boolean onOptionsItemSelected( MenuItem item ) {
         // TODO Auto-generated method stub
         switch (item.getItemId()) {
-            case R.id.logout:
-                Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.second:
-                Toast.makeText(this, "2222", Toast.LENGTH_SHORT).show();
-                break;
+//            case R.id.logout:
+//                Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.second:
+//                Toast.makeText(this, "2222", Toast.LENGTH_SHORT).show();
+//                break;
 
-            default:
-                return super.onOptionsItemSelected(item);
+//            default:
+//                return super.onOptionsItemSelected(item);
         }
         return true;
     }
