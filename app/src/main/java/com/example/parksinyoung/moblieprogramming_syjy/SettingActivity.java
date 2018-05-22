@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -31,6 +32,8 @@ public class SettingActivity extends AppCompatActivity {
                         Intent.FLAG_ACTIVITY_NEW_TASK);
                 finish();
                 startActivity(intent);
+                Toast.makeText(getApplicationContext(),"로그아웃 되셨습니다.",Toast.LENGTH_SHORT).show();
+
             }
         });
         versionButton.setOnClickListener(new View.OnClickListener() {

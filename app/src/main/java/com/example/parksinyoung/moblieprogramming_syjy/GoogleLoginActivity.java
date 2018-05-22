@@ -18,6 +18,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,7 +36,7 @@ public class GoogleLoginActivity extends AppCompatActivity
     private static final String TAG = "GoogleLoginActivity";
     private static final int RC_SIGN_IN = 9001;
     private ImageView logoImageView;
-    private Button loginButton;
+    private SignInButton loginButton;
 
 
     @Override
@@ -44,8 +45,8 @@ public class GoogleLoginActivity extends AppCompatActivity
         setContentView(R.layout.activity_login);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
-        logoImageView = findViewById(R.id.logo_image);
 
+        logoImageView = findViewById(R.id.logo_image);
         loginButton = findViewById(R.id.sign_in_button);
         loginButton.setVisibility(View.INVISIBLE);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -73,9 +74,10 @@ public class GoogleLoginActivity extends AppCompatActivity
     }
 
     private void signIn() {
-        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-        startActivityForResult(signInIntent, RC_SIGN_IN);
+        Intent intent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+        startActivityForResult(intent, RC_SIGN_IN);
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -83,33 +85,50 @@ public class GoogleLoginActivity extends AppCompatActivity
 
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            if (result.isSuccess()) {
-                GoogleSignInAccount account = result.getSignInAccount();
-                setFirebaseAuth(account);
-            } else {
-                Toast.makeText(GoogleLoginActivity.this, "" + result.getStatus(),
+            if (result != null) {
+                if (result.isSuccess()) {
+                    // 로그인 성공 했을때
+                    GoogleSignInAccount account = result.getSignInAccount();
+                    String personName = account.getDisplayName();
+                    String personEmail = account.getEmail();
+                    String personId = account.getId();
+                    String tokenKey = account.getServerAuthCode();
+                    setFirebaseAuth(account);
+                    Log.e("GoogleLogin", "personName=" + personName);
+                    Log.e("GoogleLogin", "personEmail=" + personEmail);
+                    Log.e("GoogleLogin", "personId=" + personId);
+                    Log.e("GoogleLogin", "tokenKey=" + tokenKey);
+                    Toast.makeText(GoogleLoginActivity.this, personName+"님이 로그인하셨습니다.",
                         Toast.LENGTH_SHORT).show();
-                Log.e(TAG, "Google Sign-In failed.");
+                } else {
+                    Log.e("GoogleLogin", "login fail cause=" + result.getStatus().getStatusMessage());
+                    // 로그인 실패 했을때
+                    Toast.makeText(GoogleLoginActivity.this, "로그인에 실패하셨습니다.",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
 
     private void setFirebaseAuth(final GoogleSignInAccount acct) {
-        Log.d(TAG, "firebaseAuthWithGooogle:" + acct.getId());
+        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
+
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mFirebaseAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
-
-                        if (!task.isSuccessful()) {
-                            Log.w(TAG, "signInWithCredential", task.getException());
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithCredential:success");
+                            Intent intent = new Intent(GoogleLoginActivity.this,MainActivity.class);
+                            finish();
+                            startActivity(intent);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(GoogleLoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                        } else {
-                            startActivity(new Intent(GoogleLoginActivity.this, MainActivity.class));
-                            finish();
                         }
                     }
                 });
