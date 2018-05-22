@@ -11,7 +11,8 @@
         android:theme="@style/Theme.Testous">
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            />
         <activity
             android:name=".GoogleLoginActivity"
             android:screenOrientation="portrait">
