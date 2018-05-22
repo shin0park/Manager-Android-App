@@ -20,6 +20,7 @@ public class CalenderFragment extends ToolBarFragment {
     @Override
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState ) {
         View view = inflater.inflate(R.layout.fragment_calender, container, false);
+        setToolbar();
        return view;
     }
 }

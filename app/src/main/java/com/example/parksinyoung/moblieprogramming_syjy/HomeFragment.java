@@ -24,6 +24,7 @@ public class HomeFragment extends ToolBarFragment {
     @Override
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState ) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        setToolbar();
         return view;
     }
 

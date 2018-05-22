@@ -19,6 +19,7 @@ public class ScheduleFragment extends ToolBarFragment {
     @Override
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState ) {
         View view = inflater.inflate(R.layout.fragment_schedule, container, false);
+        setToolbar();
         return view;
     }
 }

@@ -19,6 +19,7 @@ public class NoticeFragment extends ToolBarFragment {
     @Override
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState ) {
         View view = inflater.inflate(R.layout.fragment_notice, container, false);
+        setToolbar();
         return view;
     }
 }

@@ -20,6 +20,7 @@ public class BoardFragment extends ToolBarFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_board, container, false);
+        setToolbar();
         return view;
     }
 }
