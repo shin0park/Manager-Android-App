@@ -26,6 +26,7 @@ public class NoticeHolder extends RecyclerView.ViewHolder {
             }
         });
         mTitleTextView = itemView.findViewById(R.id.list_item_title_text_view);
+        mTitleTextView.setFocusableInTouchMode(true);
     }
 
     public void bindNotice(Notice notice) {
