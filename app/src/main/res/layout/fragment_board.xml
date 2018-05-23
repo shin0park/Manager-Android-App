@@ -1,13 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
 
     <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/boardbtn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:drawableEnd="@drawable/board1"
+                    android:text="@string/board_one"
+                    android:textColor="#ffffff"
+                    android:textSize="35sp" />
+
+                <Button
+                    android:id="@+id/boardbtn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="#f4b4b4"
+                    android:drawableStart="@drawable/board2"
+                    android:text="@string/board_two"
+                    android:textColor="#ffffff"
+                    android:textSize="35sp" />
+
+                <Button
+                    android:id="@+id/boardbtn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:drawableEnd="@drawable/board3"
+                    android:text="@string/board_three"
+                    android:textColor="#ffffff"
+                    android:textSize="35sp" />
+
+                <Button
+                    android:id="@+id/boardbtn4"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="70dp"
+                    android:background="#f4b4b4"
+                    android:drawableStart="@drawable/board4"
+                    android:text="@string/board_four"
+                    android:textColor="#ffffff"
+                    android:textSize="35sp" />
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
     </FrameLayout>
 
 </android.widget.LinearLayout>

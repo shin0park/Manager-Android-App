@@ -14,4 +14,8 @@
     <string name="title_schedule_e">SCHEDULE</string>
     <string name="title_calendar_e">CALENDER</string>
     <string name="title_notice_e">NOTICE</string>
+    <string name="board_one">자유게시판</string>
+    <string name="board_two">수업평가</string>
+    <string name="board_three">분실물신고</string>
+    <string name="board_four">중고거래</string>
 </resources>

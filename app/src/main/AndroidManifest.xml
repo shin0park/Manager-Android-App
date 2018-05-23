@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Testous">
         <activity
+            android:name=".ItemListActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label=""
+            >
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
             />
@@ -23,7 +29,17 @@
         </activity>
         <activity
             android:name=".SettingActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:label=""/>
+        <activity
+            android:name=".ItemDetailActivity"
+            android:label="상세 게시글 보기"
+            android:parentActivityName=".ItemListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.parksinyoung.moblieprogramming_syjy.ItemListActivity" />
+        </activity>
     </application>
 
 

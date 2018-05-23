@@ -15,7 +15,8 @@ tools:context="com.example.parksinyoung.moblieprogramming_syjy.MainActivity">
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_alignParentTop="true"
-        android:theme="@style/TestousToolbarDarkVer">
+        android:theme="@style/TestousToolbarDarkVer"
+        app:elevation="0dp">
 
         <TextView
             android:id="@+id/toolbartext"

@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -16,6 +18,10 @@ public class SettingActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Button logoutButton = findViewById(R.id.logout_button);
         Button versionButton = findViewById(R.id.version_button);
@@ -59,6 +65,17 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected( MenuItem item ) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+
+            navigateUpTo(new Intent(this,MainActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
