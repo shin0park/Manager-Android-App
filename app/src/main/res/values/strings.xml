@@ -18,4 +18,7 @@
     <string name="board_two">수업평가</string>
     <string name="board_three">분실물신고</string>
     <string name="board_four">중고거래</string>
+    <string name="class_name">수업 이름</string>
+    <string name="class_name_hint">수업 이름을 입력해주세요.</string>
+    <string name="class_room_hint">강의실을 입력해주세요</string>
 </resources>

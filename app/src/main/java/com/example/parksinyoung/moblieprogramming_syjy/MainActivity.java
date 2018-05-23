@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ActionBar actionBar;
     private TextView toolbarText;
     private ImageButton settingButton;
+    private  Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,22 +53,27 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_one://홈
+                        fragment = new HomeFragment();
                         replaceFragment(HomeFragment.newInstance());
                         toolbarText.setText("HOME");
                         return true;
                     case R.id.action_two://시간표
+                        fragment = new ScheduleFragment();
                         replaceFragment(ScheduleFragment.newInstance());
                         toolbarText.setText("SCHEDULE");
                         return true;
                     case R.id.action_three://캘린더
+                        fragment = new CalenderFragment();
                         replaceFragment(CalenderFragment.newInstance());
                         toolbarText.setText("CALENDER");
                         return true;
                     case R.id.action_four://공지
+                        fragment = new NoticeFragment();
                         replaceFragment(NoticeFragment.newInstance());
                         toolbarText.setText("NOTICE");
                         return true;
                     case R.id.action_five://게시판
+                        fragment = new BoardFragment();
                         replaceFragment(BoardFragment.newInstance());
                         toolbarText.setText("NOTICE BOARD");
                         return true;
@@ -75,15 +81,16 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.container, HomeFragment.newInstance()).commit();
+        FragmentManager fm = getSupportFragmentManager();
+       fragment = fm.findFragmentById(R.id.fragment_container);
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.add(R.id.fragment_container, HomeFragment.newInstance()).commit();
     }
 
-    private void replaceFragment(Fragment fragment) {
+    private void replaceFragment(Fragment fm) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, fragment).commit();
+        fragmentTransaction.replace(R.id.fragment_container, fm).commit();
     }
 
 
