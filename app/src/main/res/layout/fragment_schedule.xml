@@ -2,8 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="60dp"
-    android:layout_marginBottom="60dp">
+    android:id="@+id/fragment_schedule">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -28,6 +27,7 @@
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/colorWhite"
+                android:textAlignment="center"
                 android:text="월" />
             <TextView
                 android:layout_width="match_parent"
@@ -36,6 +36,7 @@
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/colorWhite"
+                android:textAlignment="center"
                 android:text="화" />
             <TextView
                 android:layout_width="match_parent"
@@ -44,6 +45,7 @@
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/colorWhite"
+                android:textAlignment="center"
                 android:text="수" />
             <TextView
                 android:layout_width="match_parent"
@@ -52,6 +54,7 @@
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/colorWhite"
+                android:textAlignment="center"
                 android:text="목" />
 
             <TextView
@@ -61,6 +64,7 @@
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textColor="@color/colorWhite"
+                android:textAlignment="center"
                 android:text="금" />
         </TableRow>
 
@@ -78,7 +82,9 @@
                 android:textColor="@color/colorWhite"
                 android:textStyle="bold"
                 android:layout_gravity="right"
-                android:text="A" />
+                android:gravity="center"
+                android:text="A"
+                android:textAlignment="center"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -145,6 +151,8 @@
                 android:textColor="@color/colorWhite"
                 android:textStyle="bold"
                 android:layout_gravity="right"
+                android:textAlignment="center"
+                android:gravity="center"
                 android:text="B" />
             <TextView
                 android:layout_width="match_parent"
@@ -212,6 +220,8 @@
                 android:textColor="@color/colorWhite"
                 android:textStyle="bold"
                 android:layout_gravity="right"
+                android:gravity="center"
+                android:textAlignment="center"
                 android:text="C" />
             <TextView
                 android:layout_width="match_parent"
@@ -279,6 +289,8 @@
                 android:textColor="@color/colorWhite"
                 android:textStyle="bold"
                 android:layout_gravity="right"
+                android:gravity="center"
+                android:textAlignment="center"
                 android:text="D" />
             <TextView
                 android:layout_width="match_parent"
@@ -346,6 +358,8 @@
                 android:textColor="@color/colorWhite"
                 android:textStyle="bold"
                 android:layout_gravity="right"
+                android:gravity="center"
+                android:textAlignment="center"
                 android:text="E" />
             <TextView
                 android:layout_width="match_parent"
@@ -413,6 +427,8 @@
                 android:textColor="@color/colorWhite"
                 android:textStyle="bold"
                 android:layout_gravity="right"
+                android:gravity="center"
+                android:textAlignment="center"
                 android:text="F" />
             <TextView
                 android:layout_width="match_parent"
@@ -480,6 +496,8 @@
                 android:textColor="@color/colorWhite"
                 android:textStyle="bold"
                 android:layout_gravity="right"
+                android:gravity="center"
+                android:textAlignment="center"
                 android:text="G" />
             <TextView
                 android:layout_width="match_parent"
@@ -547,6 +565,8 @@
                 android:textColor="@color/colorWhite"
                 android:textStyle="bold"
                 android:layout_gravity="right"
+                android:textAlignment="center"
+                android:gravity="center"
                 android:text="H" />
             <TextView
                 android:layout_width="match_parent"

@@ -14,4 +14,7 @@
     <string name="title_schedule_e">SCHEDULE</string>
     <string name="title_calendar_e">CALENDER</string>
     <string name="title_notice_e">NOTICE</string>
+    <string name="class_name">수업 이름</string>
+    <string name="class_name_hint">수업 이름을 입력해주세요.</string>
+    <string name="class_room_hint">강의실을 입력해주세요</string>
 </resources>
