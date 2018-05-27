@@ -5,8 +5,7 @@ public class User {
     private String userName;
     private String uid;
     private String email;
-    private boolean disabled;
-    //사용자가 중지되었는지 여부. 중지된 경우 true, 사용 설정된 경우 false. 제공하지 않은 경우 기본값은 false.
+    private boolean disabled; //사용자가 중지되었는지 여부. 중지된 경우 true, 사용 설정된 경우 false. 제공하지 않은 경우 기본값은 false.
 
     private User() {
     }
