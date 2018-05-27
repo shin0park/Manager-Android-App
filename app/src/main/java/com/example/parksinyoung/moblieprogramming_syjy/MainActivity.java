@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.parksinyoung.moblieprogramming_syjy.model.UserModel;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        UserModel userModel = new UserModel();
+        userModel.readUserData();
+
         toolbarText = findViewById(R.id.toolbartext);
 
         final Toolbar toolbar = findViewById(R.id.toolbar);
