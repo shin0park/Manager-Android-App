@@ -21,4 +21,18 @@
     <string name="class_name">수업 이름</string>
     <string name="class_name_hint">수업 이름을 입력해주세요.</string>
     <string name="class_room_hint">강의실을 입력해주세요</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="title">제목</string>
+    <string name="contents">내용</string>
+    <string name="write">write_notice</string>
+    <string name="write_comment">댓글 입력</string>
+    <string name="watch_comment">댓글 보기</string>
+    <string name="search">search</string>
+    <string name="write_post">게시글 작성</string>
+    <string-array name="board_spinner">
+        <item>수업후기</item>
+        <item>교재장터</item>
+        <item>익명자유</item>
+        <item>질문답변</item>
+    </string-array>
 </resources>

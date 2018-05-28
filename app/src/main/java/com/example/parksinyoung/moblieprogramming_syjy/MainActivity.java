@@ -1,6 +1,7 @@
 package com.example.parksinyoung.moblieprogramming_syjy;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -8,7 +9,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -80,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.action_five://게시판
                         fragment = new BoardFragment();
-                        replaceFragment(BoardFragment.newInstance());
+                        Intent intent = new Intent(MainActivity.this, BoardActivity.class);
+                        startActivity(intent);
                         toolbarText.setText("NOTICE BOARD");
                         return true;
                 }

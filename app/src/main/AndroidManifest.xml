@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.parksinyoung.moblieprogramming_syjy">
 
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/manager_logo3"
@@ -10,36 +15,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Testous">
         <activity
-            android:name=".ItemListActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label=""
-            >
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".BoardActivity"
+            android:screenOrientation="portrait"
+           />
+        <activity
+            android:name=".BoardWriteActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".CommentListActivity"
             android:screenOrientation="portrait"
             />
         <activity
             android:name=".GoogleLoginActivity"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name=".SettingActivity"
             android:screenOrientation="portrait"
             android:label=""/>
-        <activity
-            android:name=".ItemDetailActivity"
-            android:label="상세 게시글 보기"
-            android:parentActivityName=".ItemListActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.parksinyoung.moblieprogramming_syjy.ItemListActivity" />
-        </activity>
+
     </application>
 
 
