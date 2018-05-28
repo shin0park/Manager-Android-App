@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.action_five://게시판
                         fragment = new BoardFragment();
+                        replaceFragment(BoardFragment.newInstance());
                         Intent intent = new Intent(MainActivity.this, BoardActivity.class);
                         startActivity(intent);
                         toolbarText.setText("NOTICE BOARD");
