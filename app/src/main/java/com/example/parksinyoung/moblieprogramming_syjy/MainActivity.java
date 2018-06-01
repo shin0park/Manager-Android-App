@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView toolbarText;
     private ImageButton settingButton;
     private  Fragment fragment;
+    private BackPressCloseHandler backPressCloseHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SettingActivity.class);
-                finish();
                 startActivity(intent);
             }
         });
@@ -93,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
        fragment = fm.findFragmentById(R.id.fragment_container);
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.add(R.id.fragment_container, HomeFragment.newInstance()).commit();
+
+        backPressCloseHandler = new BackPressCloseHandler(this);
     }
 
     private void replaceFragment(Fragment fm) {
@@ -129,4 +131,11 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
+    @Override
+
+    public void onBackPressed() {
+        backPressCloseHandler.onBackPressed();
+    }
+
 }

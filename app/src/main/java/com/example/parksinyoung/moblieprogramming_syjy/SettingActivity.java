@@ -38,7 +38,7 @@ public class SettingActivity extends AppCompatActivity {
                         Intent.FLAG_ACTIVITY_NEW_TASK);
                 finish();
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(),"로그아웃 되셨습니다.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"로그아웃 되었습니다.",Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -69,11 +69,11 @@ public class SettingActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected( MenuItem item ) {
-        int id = item.getItemId();
-        if (id == android.R.id.home) {
-
-            navigateUpTo(new Intent(this,MainActivity.class));
-            return true;
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                this.finish();
+                return true;
+            }
         }
         return super.onOptionsItemSelected(item);
     }
