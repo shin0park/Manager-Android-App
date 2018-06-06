@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -23,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private ActionBar actionBar;
     private TextView toolbarText;
     private ImageButton settingButton;
-    private  Fragment fragment;
+    private Fragment fragment = new HomeFragment();
     private BackPressCloseHandler backPressCloseHandler;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_three://캘린더
                         fragment = new CalenderFragment();
                         replaceFragment(CalenderFragment.newInstance());
+                        Intent calenderintent = new Intent(MainActivity.this, CalendarActivity.class);
+                        startActivity(calenderintent);
                         toolbarText.setText("CALENDER");
                         return true;
                     case R.id.action_four://공지
@@ -82,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_five://게시판
                         fragment = new BoardFragment();
                         replaceFragment(BoardFragment.newInstance());
-                        Intent intent = new Intent(MainActivity.this, BoardActivity.class);
-                        startActivity(intent);
+                        Intent boardintent = new Intent(MainActivity.this, BoardActivity.class);
+                        startActivity(boardintent);
                         toolbarText.setText("NOTICE BOARD");
                         return true;
                 }

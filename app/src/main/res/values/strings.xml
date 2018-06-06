@@ -35,4 +35,7 @@
         <item>익명자유</item>
         <item>질문답변</item>
     </string-array>
+    <string name="no_note">메모가 없습니다.</string>
+    <string name="save">저장하기</string>
+    <string name="write_note">노트 작성</string>
 </resources>
