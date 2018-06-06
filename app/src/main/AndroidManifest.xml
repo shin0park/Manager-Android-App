@@ -44,6 +44,15 @@
             android:label=""
             android:noHistory="false"
             />
+        <activity
+            android:name=".AddNoteActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".CalendarActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".NotePreviewActivity"
+            android:screenOrientation="portrait"/>
 
     </application>
 
