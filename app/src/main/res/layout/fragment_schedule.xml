@@ -242,6 +242,7 @@
                 android:textColor="@color/colorWhite"
                 android:background="@drawable/cell_shape"
                 android:id="@+id/tuesdayC"
+                android:textSize="7sp"
                 android:text="화" />
             <TextView
                 android:layout_width="match_parent"

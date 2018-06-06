@@ -2,7 +2,7 @@ package com.example.parksinyoung.moblieprogramming_syjy.singleton;
 
 public class Notice {
     private String title;
-    private String content;
+    private String contents;
 
     public Notice() {
     }
@@ -14,8 +14,8 @@ public class Notice {
     public String getTitle() {
         return title;
     }
-    public String getContent() {
-        return content;
+    public String getContents() {
+        return contents;
     }
 
 }

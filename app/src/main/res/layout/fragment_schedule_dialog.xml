@@ -45,7 +45,7 @@
             android:text="요일" />
 
         <Spinner
-            android:id="@+id/spinner_day"
+            android:id="@+id/class_day"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/day" />
@@ -58,7 +58,7 @@
             android:text="시간" />
 
         <Spinner
-            android:id="@+id/spinner_class_time"
+            android:id="@+id/class_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/class_time"

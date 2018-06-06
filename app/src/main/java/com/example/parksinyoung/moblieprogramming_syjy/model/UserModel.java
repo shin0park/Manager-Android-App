@@ -27,7 +27,7 @@ public class UserModel {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //데이터가 없는 경우 반환 되는 스냅샷 null
                 if (dataSnapshot.getValue() == null) {
-                    setUserToDatabase();
+                    setUserData();
                 } else {
                     User.getInstance().setUserName(user.getDisplayName());
                     User.getInstance().setUid(user.getUid());
@@ -43,7 +43,7 @@ public class UserModel {
         });
     }
 
-    private void setUserToDatabase() {
+    private void setUserData() {
         databaseReference.child("User").child(user.getUid()).child("name").setValue(user.getDisplayName());
         databaseReference.child("User").child(user.getUid()).child("uid").setValue(user.getUid());
         databaseReference.child("User").child(user.getUid()).child("email").setValue(user.getEmail());
