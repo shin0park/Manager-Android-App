@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         FragmentManager fm = getSupportFragmentManager();
-       fragment = fm.findFragmentById(R.id.fragment_container);
+        fragment = fm.findFragmentById(R.id.fragment_container);
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.add(R.id.fragment_container, HomeFragment.newInstance()).commit();
 
