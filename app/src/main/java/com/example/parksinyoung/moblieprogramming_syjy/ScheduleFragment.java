@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.parksinyoung.moblieprogramming_syjy.model.ScheduleModel;
-
 import java.util.List;
 
 public class ScheduleFragment extends ToolBarFragment {
@@ -27,9 +25,6 @@ public class ScheduleFragment extends ToolBarFragment {
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState ) {
         View view = inflater.inflate(R.layout.fragment_schedule, container, false);
         setToolbar();
-
-        ScheduleModel scheduleModel = new ScheduleModel();
-        scheduleModel.readScheduleData();
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

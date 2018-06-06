@@ -1,6 +1,5 @@
 package com.example.parksinyoung.moblieprogramming_syjy.model;
 
-import com.example.parksinyoung.moblieprogramming_syjy.ScheduleDialogFragment;
 import com.example.parksinyoung.moblieprogramming_syjy.singleton.Schedule;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,7 +17,6 @@ public class ScheduleModel {
     private OnDataChangedListener onDataChangedListener;
     private FirebaseUser user;
     private List<Schedule> mSchedules = new ArrayList<>();
-    private ScheduleModel mScheduleModel;
 
     public void setOnDataChangedListener(OnDataChangedListener listener) {
         this.onDataChangedListener = listener;
@@ -46,15 +44,15 @@ public class ScheduleModel {
                 if (dataSnapshot.getValue() == null) {
                     setScheduleData();
                 } else {
-                    for (Schedule schedule : mSchedules) {
-                        String name= databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class name").getKey();
-                        String room= databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class room").getKey();
-                        String day= databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class day").getKey();
-                        String time= databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class time").getKey();
-                        ScheduleDialogFragment scheduleDialogFragment = new ScheduleDialogFragment();
-                        scheduleDialogFragment.createView(name,room,day,time);
-                    }
-
+//                    for (Schedule schedule : mSchedules) {
+//                        String name= databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class name").getKey();
+//                        String room= databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class room").getKey();
+//                        String day= databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class day").getKey();
+//                        String time= databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class time").getKey();
+//                        ScheduleDialogFragment scheduleDialogFragment = new ScheduleDialogFragment();
+//                        scheduleDialogFragment.createView(name,room,day,time);
+//                    }
+                    setScheduleData();
                 }
             }
 
@@ -68,6 +66,7 @@ public class ScheduleModel {
 
     private void setScheduleData() {
         for (Schedule schedule : mSchedules) {
+            System.out.println(mSchedules.indexOf(schedule));
             databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class name").setValue(schedule.getClassName());
             databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class room").setValue(schedule.getClassRoom());
             databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class day").setValue(schedule.getClassDay());

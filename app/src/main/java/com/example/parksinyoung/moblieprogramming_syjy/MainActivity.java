@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         UserModel userModel = new UserModel();
         userModel.readUserData();
 
-
         toolbarText = findViewById(R.id.toolbartext);
 
         final Toolbar toolbar = findViewById(R.id.toolbar);
