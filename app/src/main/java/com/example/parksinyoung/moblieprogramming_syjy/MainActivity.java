@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private ActionBar actionBar;
     private TextView toolbarText;
     private ImageButton settingButton;
+    private FragmentManager fragmentManager;
     private Fragment fragment = new HomeFragment();
     private BackPressCloseHandler backPressCloseHandler;
     Button button;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         UserModel userModel = new UserModel();
         userModel.readUserData();
-
+        fragmentManager = getSupportFragmentManager();
         toolbarText = findViewById(R.id.toolbartext);
 
         final Toolbar toolbar = findViewById(R.id.toolbar);
@@ -61,30 +62,23 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_one://홈
-                        fragment = new HomeFragment();
                         replaceFragment(HomeFragment.newInstance());
                         toolbarText.setText("HOME");
                         return true;
                     case R.id.action_two://시간표
-                        fragment = new ScheduleFragment();
                         replaceFragment(ScheduleFragment.newInstance());
                         toolbarText.setText("SCHEDULE");
                         return true;
                     case R.id.action_three://캘린더
-                        fragment = new CalenderFragment();
-                        replaceFragment(CalenderFragment.newInstance());
                         Intent calenderintent = new Intent(MainActivity.this, CalendarActivity.class);
                         startActivity(calenderintent);
                         toolbarText.setText("CALENDER");
                         return true;
                     case R.id.action_four://공지
-                        fragment = new NoticeFragment();
                         replaceFragment(NoticeFragment.newInstance());
                         toolbarText.setText("NOTICE");
                         return true;
                     case R.id.action_five://게시판
-                        fragment = new BoardFragment();
-                        replaceFragment(BoardFragment.newInstance());
                         Intent boardintent = new Intent(MainActivity.this, BoardActivity.class);
                         startActivity(boardintent);
                         toolbarText.setText("NOTICE BOARD");
@@ -93,17 +87,15 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-        FragmentManager fm = getSupportFragmentManager();
-        fragment = fm.findFragmentById(R.id.fragment_container);
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, HomeFragment.newInstance()).commit();
+//        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
 
         backPressCloseHandler = new BackPressCloseHandler(this);
     }
 
     private void replaceFragment(Fragment fm) {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fm).commit();
     }
 
