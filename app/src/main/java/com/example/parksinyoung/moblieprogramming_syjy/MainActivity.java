@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.main_bnv);
 
         BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
