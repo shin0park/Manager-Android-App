@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
                         toolbarText.setText("SCHEDULE");
                         return true;
                     case R.id.action_three://캘린더
-                        Intent calenderintent = new Intent(MainActivity.this, CalendarActivity.class);
-                        startActivity(calenderintent);
+                        Intent calenderIntent = new Intent(MainActivity.this, CalendarActivity.class);
+                        startActivity(calenderIntent);
                         toolbarText.setText("CALENDER");
                         return true;
                     case R.id.action_four://공지
@@ -79,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
                         toolbarText.setText("NOTICE");
                         return true;
                     case R.id.action_five://게시판
-                        Intent boardintent = new Intent(MainActivity.this, BoardActivity.class);
-                        startActivity(boardintent);
+                        Intent boardIntent = new Intent(MainActivity.this, BoardActivity.class);
+                        startActivity(boardIntent);
                         toolbarText.setText("NOTICE BOARD");
                         return true;
                 }

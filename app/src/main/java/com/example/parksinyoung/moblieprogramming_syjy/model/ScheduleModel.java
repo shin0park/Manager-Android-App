@@ -65,12 +65,12 @@ public class ScheduleModel {
 
 
     private void setScheduleData() {
-        for (Schedule schedule : mSchedules) {
-            System.out.println(mSchedules.indexOf(schedule));
-            databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class name").setValue(schedule.getClassName());
-            databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class room").setValue(schedule.getClassRoom());
-            databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class day").setValue(schedule.getClassDay());
-            databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+mSchedules.indexOf(schedule)).child("class time").setValue(schedule.getClassTime());
+        for (int i = 0; i < mSchedules.size(); i++) {
+            System.out.println("set data index:"+i);
+            databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+i).child("class name").push().setValue(mSchedules.get(i).getClassName());
+            databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+i).child("class room").push().setValue(mSchedules.get(i).getClassRoom());
+            databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+i).child("class day").push().setValue(mSchedules.get(i).getClassDay());
+            databaseReference.child("User").child(user.getUid()).child("Schedule").child(""+i).child("class time").push().setValue(mSchedules.get(i).getClassTime());
 
         }
     }

@@ -5,22 +5,31 @@ public class Schedule {
     private String classRoom;
     private String classDay;
     private String classTime;
+    private String authorUid;
+//    private String monday[] = new String[7];
+//    private String tuesday[] = new String[7];
+//    private String wednesday[] = new String[7];
+//    private String thursday[] = new String[7];
+//    private String friday[] = new String[7];
 
-    private String monday[] = new String[7];
-    private String tuesday[] = new String[7];
-    private String wednesday[] = new String[7];
-    private String thursday[] = new String[7];
-    private String friday[] = new String[7];
+//    public Schedule() {
+////        for (int i = 0; i < 7; i++) {
+////            monday[i] = "";
+////            tuesday[i] = "";
+////            wednesday[i] = "";
+////            thursday[i] = "";
+////            friday[i] = "";
+////
+////        }
+//    }
 
-    public Schedule() {
-        for (int i = 0; i < 7; i++) {
-            monday[i] = "";
-            tuesday[i] = "";
-            wednesday[i] = "";
-            thursday[i] = "";
-            friday[i] = "";
 
-        }
+    public Schedule(String className, String classRoom, String classDay, String classTime) {
+        this.className = className;
+        this.classRoom = classRoom;
+        this.classDay = classDay;
+        this.classTime = classTime;
+        this.authorUid = User.getInstance().getUid();
     }
 
     public void setClassName(String className) {
@@ -54,4 +63,15 @@ public class Schedule {
     public String getClassTime() {
         return classTime;
     }
+
+    public String getAuthorUid() {
+        return authorUid; }
+
+    public static Schedule newSchedule( String className, String classRoom, String classDay, String classTime) {
+        return new Schedule(className,classRoom, classDay, classTime);
+    }
+
+
+
+
 }

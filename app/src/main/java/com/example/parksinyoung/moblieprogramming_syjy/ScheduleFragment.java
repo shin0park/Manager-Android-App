@@ -14,11 +14,12 @@ import java.util.List;
 public class ScheduleFragment extends ToolBarFragment {
     private List<TextView> mTextViews;
     private static final String DIALOG_SCHEDULE = "DialogSchedule";
+    private static ScheduleFragment sFragment = new ScheduleFragment();
 
 
     @NonNull
     public static ScheduleFragment newInstance() {
-        return new ScheduleFragment();
+        return sFragment;
     }
 
     @Override
