@@ -1,10 +1,7 @@
 package com.example.parksinyoung.moblieprogramming_syjy;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -17,7 +14,6 @@ import android.widget.Toast;
 import com.example.parksinyoung.moblieprogramming_syjy.model.ScheduleModel;
 import com.example.parksinyoung.moblieprogramming_syjy.singleton.Schedule;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -45,7 +41,7 @@ public class ScheduleFragment extends ToolBarFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_schedule2, container, false);
+        View view = inflater.inflate(R.layout.fragment_schedule, container, false);
 
         monday[0] = view.findViewById(R.id.mondayA);
         monday[1] = view.findViewById(R.id.mondayB);

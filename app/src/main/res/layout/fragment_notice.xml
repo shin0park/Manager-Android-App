@@ -5,33 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:id="@+id/notice_recycler_view"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
-
-    <!--</android.support.v7.widget.RecyclerView>-->
-
     <Button
         android:id="@+id/notice_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+        android:background="@color/colorPink"
+        android:text="University Notice"
         android:padding="30dp"
-        android:text="학교 공지사항"
+        android:textSize="20sp"
+
+        android:fontFamily="@font/lucemita_font"
         app:layout_constraintTop_toTopOf="parent" />
     <Button
         android:id="@+id/notice_button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="30dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/lucemita_font"
         app:layout_constraintTop_toBottomOf="@+id/notice_button"
-        android:text="학부 공지사항"/>
+        android:background="@color/colorOrange"
+        android:text="Undergraduate Notice"/>
     <Button
         android:id="@+id/major_notice_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="30dp"
         app:layout_constraintTop_toBottomOf="@+id/notice_button2"
+        android:background="@color/colorYellow"
         android:text="학과 공지사항"/>
     <Button
         android:id="@+id/food_button"
@@ -39,6 +41,7 @@
         android:layout_height="wrap_content"
         android:padding="30dp"
         app:layout_constraintTop_toBottomOf="@+id/major_notice_button"
+        android:background="@color/colorGreen"
         android:text="교내식당"/>
     <Button
         android:id="@+id/university_schedule_button"
@@ -46,5 +49,6 @@
         android:layout_height="wrap_content"
         android:padding="30dp"
         app:layout_constraintTop_toBottomOf="@+id/food_button"
+        android:background="@color/colorPuple"
         android:text="학사일정"/>
 </android.support.constraint.ConstraintLayout>

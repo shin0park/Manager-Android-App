@@ -74,33 +74,6 @@ public class NoticeFragment extends ToolBarFragment {
                 startActivity(intent);
             }
         });
-//        //recyclerview 는 LayoutManager가 view위치시키는 일을 함. 설정 안할 시 작동 안함.
-//        mNoticeRecyclerView = view.findViewById(R.id.notice_recycler_view);
-//        mNoticeRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        //model
-//        mNoticeModel = new NoticeModel();
-//        mNoticeList = new ArrayList<>();
-//
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-//        linearLayoutManager.setStackFromEnd(true);
-//        linearLayoutManager.setReverseLayout(true);
-//        linearLayoutManager.scrollToPositionWithOffset(0, 0);
-//
-//        //adapter 생성 및 sett
-//        mNoticeAdapter = new NoticeAdapter(mNoticeList);
-//        mNoticeRecyclerView.setAdapter(mNoticeAdapter);
-//        mNoticeRecyclerView.setLayoutManager(linearLayoutManager);
-//
-//        mNoticeModel.readLimitFirstData(new OnNoticeChangeListener<Notice>() {
-//
-//            @Override
-//            public void onChange(List noticeList, List keyList) {
-//                mNoticeAdapter.setList(noticeList);
-//                mNoticeRecyclerView.getLayoutManager().scrollToPosition(mNoticeRecyclerView.getAdapter().getItemCount() - 1);
-//
-//            }
-//
-//        });
 
         return view;
     }
