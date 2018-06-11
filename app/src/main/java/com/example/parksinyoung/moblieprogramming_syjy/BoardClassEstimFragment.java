@@ -4,19 +4,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class BoardQAFragment extends BaseBoardFragment {
+public class BoardClassEstimFragment extends BaseBoardFragment {
+
+    public BoardClassEstimFragment() {}
 
     @Override
     public DatabaseReference getRef() {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        return databaseReference.child("질문답변");
+        return databaseReference.child("수업후기");
     }
 
     @Override
     public String getPostType() {
-        return "질문답변";
+        return "수업후기";
     }
 
-    public BoardQAFragment() {
-    }
 }

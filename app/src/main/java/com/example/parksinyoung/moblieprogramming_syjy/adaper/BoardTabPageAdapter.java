@@ -5,9 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.parksinyoung.moblieprogramming_syjy.BoardAnonymousFragment;
-import com.example.parksinyoung.moblieprogramming_syjy.BoardClassReviewFragment;
-import com.example.parksinyoung.moblieprogramming_syjy.BoardQAFragment;
-import com.example.parksinyoung.moblieprogramming_syjy.BoardTextbookFragment;
+import com.example.parksinyoung.moblieprogramming_syjy.BoardClassEstimFragment;
+import com.example.parksinyoung.moblieprogramming_syjy.BoardLossFragment;
+import com.example.parksinyoung.moblieprogramming_syjy.BoardTradeFragment;
 
 
 public class BoardTabPageAdapter extends FragmentStatePagerAdapter {
@@ -24,16 +24,16 @@ public class BoardTabPageAdapter extends FragmentStatePagerAdapter {
 
         switch (position) {
             case 0:
-                return new BoardClassReviewFragment();
+                return new BoardClassEstimFragment();
 
             case 1:
-                return new BoardTextbookFragment();
+                return new BoardTradeFragment();
 
             case 2:
                 return new BoardAnonymousFragment();
 
             case 3:
-                return new BoardQAFragment();
+                return new BoardLossFragment();
 
             default:
                 return null;
