@@ -14,7 +14,7 @@
     <string name="title_schedule_e">SCHEDULE</string>
     <string name="title_calendar_e">CALENDER</string>
     <string name="title_notice_e">NOTICE</string>
-    <string name="board_one">자유게시판</string>
+    <string name="board_one">익명자유</string>
     <string name="board_two">수업평가</string>
     <string name="board_three">분실물신고</string>
     <string name="board_four">중고거래</string>
@@ -30,10 +30,10 @@
     <string name="search">search</string>
     <string name="write_post">게시글 작성</string>
     <string-array name="board_spinner">
-        <item>수업후기</item>
-        <item>교재장터</item>
+        <item>수업평가</item>
+        <item>중고거래</item>
         <item>익명자유</item>
-        <item>질문답변</item>
+        <item>분실물신고</item>
     </string-array>
     <string name="no_note">메모가 없습니다.</string>
     <string name="save">저장하기</string>

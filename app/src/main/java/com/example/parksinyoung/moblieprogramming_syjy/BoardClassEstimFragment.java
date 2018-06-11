@@ -11,12 +11,12 @@ public class BoardClassEstimFragment extends BaseBoardFragment {
     @Override
     public DatabaseReference getRef() {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        return databaseReference.child("수업후기");
+        return databaseReference.child("수업평가");
     }
 
     @Override
     public String getPostType() {
-        return "수업후기";
+        return "수업평가";
     }
 
 }

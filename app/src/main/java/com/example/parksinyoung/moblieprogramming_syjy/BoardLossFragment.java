@@ -9,12 +9,12 @@ public class BoardLossFragment extends BaseBoardFragment {
     @Override
     public DatabaseReference getRef() {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        return databaseReference.child("질문답변");
+        return databaseReference.child("분실물신고");
     }
 
     @Override
     public String getPostType() {
-        return "질문답변";
+        return "분실물신고";
     }
 
     public BoardLossFragment() {

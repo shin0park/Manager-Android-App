@@ -75,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.action_three://캘린더
                         Intent calenderIntent = new Intent(MainActivity.this, CalendarActivity.class);
-                        startActivity(calenderIntent);replaceFragment(sHomeFragment);
+                        startActivity(calenderIntent);
+                        replaceFragment(sHomeFragment);
                         toolbarText.setText("HOME");
                         return true;
                     case R.id.action_four://공지
