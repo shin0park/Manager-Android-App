@@ -25,9 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView toolbarText;
     private ImageButton settingButton;
     private FragmentManager fragmentManager;
-    private Fragment fragment = new HomeFragment();
     private BackPressCloseHandler backPressCloseHandler;
-    Button button;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

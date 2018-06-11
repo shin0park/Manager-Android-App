@@ -1,20 +1,38 @@
 package com.example.parksinyoung.moblieprogramming_syjy;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+
+import com.example.parksinyoung.moblieprogramming_syjy.model.ScheduleModel;
+import com.example.parksinyoung.moblieprogramming_syjy.singleton.Schedule;
 
 import java.util.List;
 
-public class ScheduleFragment extends ToolBarFragment {
-    private List<TextView> mTextViews;
+public class ScheduleFragment extends Fragment {
     private static final String DIALOG_SCHEDULE = "DialogSchedule";
     private static ScheduleFragment sFragment = new ScheduleFragment();
+    private ScheduleModel scheduleModel = new ScheduleModel();
+    private Schedule schedule;
+    private List<Schedule> mSchedules;
+    private ProgressDialog progressDialog;
+
+    private TextView monday[] = new TextView[8];
+    private TextView tuesday[] = new TextView[8];
+    private TextView wednesday[] = new TextView[8];
+    private TextView thursday[] = new TextView[8];
+    private TextView friday[] = new TextView[8];
+
 
 
     @NonNull
@@ -23,9 +41,67 @@ public class ScheduleFragment extends ToolBarFragment {
     }
 
     @Override
-    public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState ) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_schedule, container, false);
+        View view = inflater.inflate(R.layout.fragment_schedule2, container, false);
+//        for (int i = 0; i < 7; i++) {
+//            monday[i] = "";
+//            tuesday[i] = "";
+//            wednesday[i] = "";
+//            thursday[i] = "";
+//            friday[i] = "";
+//
+//        }
+        monday[0] = view.findViewById(R.id.mondayA);
+        monday[1] = view.findViewById(R.id.mondayB);
+        monday[2] = view.findViewById(R.id.mondayC);
+        monday[3] = view.findViewById(R.id.mondayD);
+        monday[4] = view.findViewById(R.id.mondayE);
+        monday[5] = view.findViewById(R.id.mondayF);
+        monday[6] = view.findViewById(R.id.mondayG);
+        monday[7] = view.findViewById(R.id.mondayH);
+
+        tuesday[0] = view.findViewById(R.id.tuesdayA);
+        tuesday[1] = view.findViewById(R.id.tuesdayB);
+        tuesday[2] = view.findViewById(R.id.tuesdayC);
+        tuesday[3] = view.findViewById(R.id.tuesdayD);
+        tuesday[4] = view.findViewById(R.id.tuesdayE);
+        tuesday[5] = view.findViewById(R.id.tuesdayF);
+        tuesday[6] = view.findViewById(R.id.tuesdayG);
+        tuesday[7] = view.findViewById(R.id.tuesdayH);
+
+        wednesday[0] = view.findViewById(R.id.wednesdayA);
+        wednesday[1] = view.findViewById(R.id.wednesdayB);
+        wednesday[2] = view.findViewById(R.id.wednesdayC);
+        wednesday[3] = view.findViewById(R.id.wednesdayD);
+        wednesday[4] = view.findViewById(R.id.wednesdayE);
+        wednesday[5] = view.findViewById(R.id.wednesdayF);
+        wednesday[6] = view.findViewById(R.id.wednesdayG);
+        wednesday[7] = view.findViewById(R.id.wednesdayH);
+
+        thursday[0] = view.findViewById(R.id.thursdayA);
+        thursday[1] = view.findViewById(R.id.thursdayB);
+        thursday[2] = view.findViewById(R.id.thursdayC);
+        thursday[3] = view.findViewById(R.id.thursdayD);
+        thursday[4] = view.findViewById(R.id.thursdayE);
+        thursday[5] = view.findViewById(R.id.thursdayF);
+        thursday[6] = view.findViewById(R.id.thursdayG);
+        thursday[7] = view.findViewById(R.id.thursdayH);
+
+        friday[0] = view.findViewById(R.id.fridayA);
+        friday[1] = view.findViewById(R.id.fridayB);
+        friday[2] = view.findViewById(R.id.fridayC);
+        friday[3] = view.findViewById(R.id.fridayD);
+        friday[4] = view.findViewById(R.id.fridayE);
+        friday[5] = view.findViewById(R.id.fridayF);
+        friday[6] = view.findViewById(R.id.fridayG);
+        friday[7] = view.findViewById(R.id.fridayH);
+
+        this.mSchedules = scheduleModel.getSchedules();
+
+        for (int i = 0; i < mSchedules.size(); i++) {
+            createView(mSchedules.get(i).getClassName(), mSchedules.get(i).getClassRoom(), mSchedules.get(i).getClassDay(), mSchedules.get(i).getClassTime());
+        }
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,13 +109,222 @@ public class ScheduleFragment extends ToolBarFragment {
                 FragmentManager manager = getFragmentManager();
                 ScheduleDialogFragment dialogFragment = new ScheduleDialogFragment();
                 dialogFragment.show(manager, DIALOG_SCHEDULE);
+                dialogFragment.setDialogResult(new ScheduleDialogFragment.OnMyDialogResult() {
+                    @Override
+                    public void finish(Object result) {
+                        schedule = (Schedule) result;
+//                        scheduleModel.addScheduleModel(schedule);
+                        scheduleModel.writeSchedule(schedule.getClassName(), schedule.getClassRoom(), schedule.getClassDay(), schedule.getClassTime());
+                        createView(schedule.getClassName(), schedule.getClassRoom(), schedule.getClassDay(), schedule.getClassTime());
+                    }
+                });
             }
         });
+
+
         return view;
     }
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+
+    public ScheduleModel getScheduleModel() {
+        return scheduleModel;
+    }
+
+    private void showProgressDialog() {
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading..");
+        progressDialog.show();
+    }
+
+    public void createView(String name, String room, String day, String time) {
+        String r = " (" + room + ") ";
+        String text = name + "\n" + r;
+        if (day.equals("월요일")) {
+            if (time.equals("A")) {
+                monday[0].setText(text);
+                monday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("B")) {
+                monday[1].setText(text);
+                monday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("C")) {
+                Toast.makeText(getActivity(), name + " (" + room + ") ", Toast.LENGTH_SHORT).show();
+                monday[2].setText(text);
+                monday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+
+            }
+            else if (time.equals("D")) {
+                monday[3].setText(text);
+
+                monday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("E")) {
+                monday[4].setText(text);
+
+                monday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+
+            }
+            else if (time.equals("F")) {
+                monday[5].setText(text);
+
+                monday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+
+            }
+            else if (time.equals("G")) {
+                monday[6].setText(text);
+
+                monday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+
+            }
+            else if (time.equals("H")) {
+                monday[7].setText(text);
+
+                monday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+
+        } else if (day.equals("화요일")) {
+            if (time.equals("A")) {
+                tuesday[0].setText(text);
+                tuesday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+
+            }
+            else if (time.equals("B")) {
+                tuesday[1].setText(text);
+                tuesday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+
+            }
+            else if (time.equals("C")) {
+                tuesday[2].setText(text);
+                tuesday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("D")) {
+                tuesday[3].setText(text);
+                tuesday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("E")) {
+                tuesday[4].setText(text);
+                tuesday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("F")) {
+                tuesday[5].setText(text);
+                tuesday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("G")) {
+                tuesday[6].setText(text);
+                tuesday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("H")) {
+                tuesday[7].setText(text);
+                tuesday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+        } else if (day.equals("수요일")) {
+            if (time.equals("A")) {
+                wednesday[0].setText(text);
+                wednesday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("B")) {
+                wednesday[1].setText(text);
+                wednesday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("C")) {
+                wednesday[2].setText(text);
+                wednesday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("D")) {
+                wednesday[3].setText(text);
+                wednesday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("E")) {
+                wednesday[4].setText(text);
+                wednesday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("F")) {
+                wednesday[5].setText(text);
+                wednesday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("G")) {
+                wednesday[6].setText(text);
+                wednesday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("H")) {
+                wednesday[7].setText(text);
+                wednesday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+        } else if (day.equals("목요일")) {
+            if (time.equals("A")) {
+                thursday[0].setText(text);
+                thursday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("B")) {
+                thursday[1].setText(text);
+                thursday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("C")) {
+                thursday[2].setText(text);
+                thursday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("D")) {
+                thursday[3].setText(text);
+                thursday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("E")) {
+                thursday[4].setText(text);
+                thursday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("F")) {
+                thursday[5].setText(text);
+                thursday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("G")) {
+                thursday[6].setText(text);
+                thursday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("H")) {
+                thursday[7].setText(text);
+                thursday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+        } else if (day.equals("금요일")) {
+            if (time.equals("A")) {
+                friday[0].setText(text);
+                friday[0].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("B")) {
+                friday[1].setText(text);
+                friday[1].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("C")) {
+                friday[2].setText(text);
+                friday[2].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("D")) {
+                friday[3].setText(text);
+                friday[3].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("E")) {
+                friday[4].setText(text);
+                friday[4].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("F")) {
+                friday[5].setText(text);
+                friday[5].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("G")) {
+                friday[6].setText(text);
+                friday[6].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+            else if (time.equals("H")) {
+                friday[7].setText(text);
+                friday[7].setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.cell_shape_update));
+            }
+        }
+//        for (int i = 0; i < 8; i++) {
+////            monday[i].resizeText();
+//            tuesday[i].resizeText();
+//            wednesday[i].resizeText();
+//            thursday[i].resizeText();
+//            friday[i].resizeText();
+//        }
     }
 
 }

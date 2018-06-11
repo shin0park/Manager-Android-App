@@ -12,7 +12,7 @@ public class Schedule {
 //    private String thursday[] = new String[7];
 //    private String friday[] = new String[7];
 
-//    public Schedule() {
+    //    public Schedule() {
 ////        for (int i = 0; i < 7; i++) {
 ////            monday[i] = "";
 ////            tuesday[i] = "";
@@ -22,7 +22,9 @@ public class Schedule {
 ////
 ////        }
 //    }
+    public Schedule() {
 
+    }
 
     public Schedule(String className, String classRoom, String classDay, String classTime) {
         this.className = className;
@@ -32,20 +34,8 @@ public class Schedule {
         this.authorUid = User.getInstance().getUid();
     }
 
-    public void setClassName(String className) {
-        this.className = className;
-    }
-
-    public void setClassRoom(String classRoom) {
-        this.classRoom = classRoom;
-    }
-
-    public void setClassDay(String classDay) {
-        this.classDay = classDay;
-    }
-
-    public void setClassTime(String classTime) {
-        this.classTime = classTime;
+    public void setAuthorUid(String authorUid) {
+        this.authorUid = authorUid;
     }
 
     public String getClassName() {
@@ -65,13 +55,12 @@ public class Schedule {
     }
 
     public String getAuthorUid() {
-        return authorUid; }
-
-    public static Schedule newSchedule( String className, String classRoom, String classDay, String classTime) {
-        return new Schedule(className,classRoom, classDay, classTime);
+        return authorUid;
     }
 
-
+    public static Schedule newSchedule(String className, String classRoom, String classDay, String classTime) {
+        return new Schedule(className, classRoom, classDay, classTime);
+    }
 
 
 }

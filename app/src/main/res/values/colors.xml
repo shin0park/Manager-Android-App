@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#e96b64</color>
+    <color name="colorSchedule">#EA6C68</color>
     <color name="colorPrimaryDark">#453F41</color>
     <color name="colorAccent">#FF4081</color>
     <color name="bottom_section_color">#a6a6a6</color>
+    <color name="colorGray">#a6a6a6</color>
+    <color name="colorPink">#FDC2BE</color>
+    <color name="colorMint">#C5E8C2</color>
+    <color name="colorYellow">#FFDCAC</color>
+    <color name="colorScheduleUpdate">#BDD798</color>
+    <color name="colorText">#644437</color>
+
     <color name="bottom_state_checked">#DF4D4D</color>
     <color name="colorWhite">#F6F6F6</color>
     <color name="colorBackground">#F9E5D3</color>
