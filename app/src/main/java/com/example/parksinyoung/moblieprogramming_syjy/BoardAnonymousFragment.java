@@ -3,7 +3,7 @@ package com.example.parksinyoung.moblieprogramming_syjy;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class BoardAnonymousFragment extends BaseBoardFragment {
+public class BoardAnonymousFragment extends CommonBoardFragment {
 
     public BoardAnonymousFragment() {
     }

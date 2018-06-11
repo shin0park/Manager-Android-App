@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
 
-public abstract class BaseBoardFragment extends Fragment {
+public abstract class CommonBoardFragment extends Fragment {
     private RecyclerView recyclerView;
     private ProgressDialog progressDialog;
 

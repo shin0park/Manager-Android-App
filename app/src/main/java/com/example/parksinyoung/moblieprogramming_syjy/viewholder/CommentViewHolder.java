@@ -34,6 +34,7 @@ public class CommentViewHolder extends RecyclerView.ViewHolder
 
     }
 
+
     public void bindComment( Comment model, String postKey, String commentKey) {
         this.comment = model;
         authorView.setText(model.getAuthor());
