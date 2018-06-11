@@ -4,7 +4,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class BoardTextbookFragment extends BaseBoardFragment {
+public class BoardTextbookFragment extends CommonBoardFragment {
 
     public BoardTextbookFragment() {
     }

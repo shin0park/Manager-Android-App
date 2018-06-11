@@ -4,7 +4,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class BoardQAFragment extends BaseBoardFragment {
+public class BoardQAFragment extends CommonBoardFragment {
 
     @Override
     public DatabaseReference getRef() {

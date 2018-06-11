@@ -130,14 +130,14 @@ public class HomeFragment extends ToolBarFragment {
     };
 
 
-    @Override
-    protected Dialog onCreateDialog( int id){
-        if(id==DATE_DIALOG_ID){
-            return new DatePickerDialog(this,dDateSetListener,tYear,tMonth,tDay);
-
-        }
-        return null;
-    }
+//    @Override
+//    protected Dialog onCreateDialog( int id){
+//        if(id==DATE_DIALOG_ID){
+//            return new DatePickerDialog(this,dDateSetListener,tYear,tMonth,tDay);
+//
+//        }
+//        return null;
+//    }
 
 
 
