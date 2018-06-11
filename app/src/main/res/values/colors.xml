@@ -8,7 +8,7 @@
     <color name="colorGray">#a6a6a6</color>
     <color name="colorPink">#F1B3B8</color>
     <color name="colorOrange">#FBCBBD</color>
-    <color name="colorYellow2">#FCEBBE</color>
+    <color name="colorYellow2">#fcebbe</color>
     <color name="colorGreen">#EAEFCF</color>
     <color name="colorPuple">#E3C4DE</color>
 
@@ -18,10 +18,11 @@
     <color name="colorText">#644437</color>
 
     <color name="bottom_state_checked">#DF4D4D</color>
-    <color name="colorWhite">#F6F6F6</color>
-    <color name="colorBackground">#F9E5D3</color>
+    <color name="colorWhite">#f6f6f6</color>
+    <color name="colorBackground">#f9e5d3</color>
     <color name="colorwhite2">#dddddd</color>
     <color name="colorBlack">#000000</color>
     <color name="tabSelectedTextColor">#f99a9a</color>
+    <color name="textcolor">#4b4545</color>
 
 </resources>
