@@ -1,6 +1,5 @@
 package com.example.parksinyoung.moblieprogramming_syjy;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +11,10 @@ import android.view.View;
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
 import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
+import com.example.parksinyoung.moblieprogramming_syjy.model.CalendarModel;
+import com.example.parksinyoung.moblieprogramming_syjy.model.ScheduleModel;
 import com.example.parksinyoung.moblieprogramming_syjy.singleton.CalendarSingle;
+import com.example.parksinyoung.moblieprogramming_syjy.singleton.Schedule;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,6 +24,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import static java.lang.String.valueOf;
+
 public class CalendarActivity extends AppCompatActivity {
     public static final String RESULT = "result";
     public static final String EVENT = "event";
@@ -29,7 +33,11 @@ public class CalendarActivity extends AppCompatActivity {
     private CalendarView mCalendarView;
     //private TextView textView;
     private List<EventDay> mEventDays = new ArrayList<>();
-    private List<EventDay> gEventDays = new ArrayList <>();
+    private List<CalendarSingle> gCalendarSingles;
+    private CalendarModel calendarModel = new CalendarModel("캘린더");
+    private List<EventDay> gEventDats = new ArrayList <>();
+    private List<Schedule> mSchedules = new ArrayList <>();
+    private ScheduleModel scheduleModel = new ScheduleModel();
 
     private ProgressDialog progressDialog;
     private DatabaseReference databaseReference;
@@ -40,11 +48,44 @@ public class CalendarActivity extends AppCompatActivity {
         return "캘린더";
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender);
         mCalendarView = (CalendarView) findViewById(R.id.calendarView);
+
+        Calendar calendar1 = Calendar.getInstance();
+        calendar1.set(2018,6-1,12);
+        List<EventDay> eventDay = new ArrayList <>();
+        eventDay.add(new EventDay(calendar1,R.drawable.ic_message_black_48dp));
+        mCalendarView.setDate(calendar1);
+        mCalendarView.setEvents(eventDay);
+
+//        Calendar calendar1 = Calendar.getInstance();
+//        calendar1.set(2018,7-1,11);
+//        mCalendarView.setDate(calendar1);
+//        mEventDays.add(new MyEventDay(calendar1,R.drawable.ic_message_black_48dp,"원래있던메모"));
+
+        this.mSchedules = scheduleModel.getSchedules();
+
+        this.gCalendarSingles = calendarModel.getmCalendars();
+        Log.i("가져xxf옴",valueOf(gCalendarSingles.size()));
+        for(int i = 0; i< gCalendarSingles.size(); i++) {
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(gCalendarSingles.get(i).getYear(), gCalendarSingles.get(i).getMonth(), gCalendarSingles.get(i).getDay());
+            gEventDats.add(new EventDay(calendar,R.drawable.ic_message_black_48dp));
+            mCalendarView.setDate(gEventDats.get(i).getCalendar());
+            mCalendarView.setEvents(gEventDats);
+        }
+        mCalendarView.setOnDayClickListener(new OnDayClickListener() {
+            @Override
+            public void onDayClick(EventDay eventDay) {
+                previewNote(eventDay);
+                // setTextPreview(eventDay);
+            }
+        });
        // textView = findViewById(R.id.preview_note);
         FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -53,13 +94,7 @@ public class CalendarActivity extends AppCompatActivity {
                 addNote();
             }
         });
-        mCalendarView.setOnDayClickListener(new OnDayClickListener() {
-            @Override
-            public void onDayClick(EventDay eventDay) {
-                previewNote(eventDay);
-               // setTextPreview(eventDay);
-            }
-        });
+
         ValueEventListener calendarlistener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -81,9 +116,11 @@ public class CalendarActivity extends AppCompatActivity {
                 // ...
             }
         };
-        databaseReference.addValueEventListener(calendarlistener);
+       // databaseReference.addValueEventListener(calendarlistener);
+
 
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
