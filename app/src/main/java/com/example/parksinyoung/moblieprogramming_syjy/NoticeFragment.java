@@ -9,14 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class NoticeFragment extends ToolBarFragment {
 
-    private Button UniNoticeButton;
-    private Button scheduleButton;
-    private Button majorNoticeButton;
+    private ImageButton UniNoticeButton;
+    private ImageButton scheduleButton;
+    private ImageButton majorNoticeButton;
     private Button foodButton;
-    private Button noticeButton;
+    private ImageButton noticeButton;
 
 //    @NonNull
 //    public static NoticeFragment newInstance() {
@@ -30,7 +31,7 @@ public class NoticeFragment extends ToolBarFragment {
 
         UniNoticeButton = view.findViewById(R.id.notice_button);
         majorNoticeButton = view.findViewById(R.id.major_notice_button);
-        foodButton = view.findViewById(R.id.food_button);
+//        foodButton = view.findViewById(R.id.food_button);
         scheduleButton = view.findViewById(R.id.university_schedule_button);
         noticeButton = view.findViewById(R.id.notice_button2);
 
@@ -58,14 +59,14 @@ public class NoticeFragment extends ToolBarFragment {
                 startActivity(intent);
             }
         });
-        foodButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ajou.ac.kr/kr/life/food.jsp"));
-                intent.setPackage("com.android.chrome");
-                startActivity(intent);
-            }
-        });
+//        foodButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ajou.ac.kr/kr/life/food.jsp"));
+//                intent.setPackage("com.android.chrome");
+//                startActivity(intent);
+//            }
+//        });
         scheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

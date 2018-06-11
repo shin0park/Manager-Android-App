@@ -25,8 +25,7 @@
                 android:text="@string/title_home_e"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/campton_lightdemo"
-                />
+                android:fontFamily="@font/campton_lightdemo" />
 
             <ImageButton
                 android:id="@+id/setting_button"
