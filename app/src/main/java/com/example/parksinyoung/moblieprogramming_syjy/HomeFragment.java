@@ -15,10 +15,10 @@ import android.widget.TextView;
 
 public class HomeFragment extends ToolBarFragment {
 
-    @NonNull
-    public static HomeFragment newInstance() {
-        return new HomeFragment();
-    }
+//    @NonNull
+//    public static HomeFragment newInstance() {
+//        return new HomeFragment();
+//    }
 
     @Nullable
     @Override

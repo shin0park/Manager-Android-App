@@ -19,7 +19,6 @@ public class PostModel {
         this.onDataChangedListener = listener;
     }
 
-
     public PostModel(String postType) {
         databaseReference = FirebaseDatabase.getInstance().getReference();
 

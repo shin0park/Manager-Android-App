@@ -17,10 +17,10 @@ public class NoticeFragment extends ToolBarFragment {
     private Button foodButton;
     private Button scheduleButton;
 
-    @NonNull
-    public static NoticeFragment newInstance() {
-        return new NoticeFragment();
-    }
+//    @NonNull
+//    public static NoticeFragment newInstance() {
+//        return new NoticeFragment();
+//    }
 
     @Override
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState ) {

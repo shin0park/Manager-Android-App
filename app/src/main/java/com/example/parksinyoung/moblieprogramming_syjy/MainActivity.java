@@ -27,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager;
     private BackPressCloseHandler backPressCloseHandler;
     private Button button;
+    private static HomeFragment sHomeFragment = new HomeFragment();
+    private static ScheduleFragment scheduleFragment = new ScheduleFragment();
+    private static NoticeFragment sNoticeFragment = new NoticeFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,11 +65,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.action_one://홈
-                        replaceFragment(HomeFragment.newInstance());
+                        replaceFragment(sHomeFragment);
                         toolbarText.setText("HOME");
                         return true;
                     case R.id.action_two://시간표
-                        replaceFragment(ScheduleFragment.newInstance());
+                        replaceFragment(scheduleFragment);
                         toolbarText.setText("SCHEDULE");
                         return true;
                     case R.id.action_three://캘린더
@@ -75,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                         toolbarText.setText("CALENDER");
                         return true;
                     case R.id.action_four://공지
-                        replaceFragment(NoticeFragment.newInstance());
+                        replaceFragment(sNoticeFragment);
                         toolbarText.setText("NOTICE");
                         return true;
                     case R.id.action_five://게시판
@@ -91,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 //        fragmentTransaction.replace(R.id.fragment_container, fragment).commit();
 
         backPressCloseHandler = new BackPressCloseHandler(this);
+
     }
 
     private void replaceFragment(Fragment fm) {

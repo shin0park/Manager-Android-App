@@ -1,8 +1,7 @@
 package com.example.parksinyoung.moblieprogramming_syjy;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.app.FragmentManager;
+
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,28 +10,16 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.parksinyoung.moblieprogramming_syjy.model.ScheduleModel;
 import com.example.parksinyoung.moblieprogramming_syjy.singleton.Schedule;
 
 public class ScheduleDialogFragment extends DialogFragment {
-    private ScheduleModel scheduleModel;
+
     private EditText className;
     private EditText classRoom;
     private Spinner classDay;
     private Spinner classTime;
     private OnMyDialogResult mDialogResult;
 
-
-//
-//
-//    private TextView monday[] = new TextView[8];
-//    private TextView tuesday[] = new TextView[8];
-//    private TextView wednesday[] = new TextView[8];
-//    private TextView thursday[] = new TextView[8];
-//    private TextView friday[] = new TextView[8];
 
     public interface OnMyDialogResult{
 
@@ -56,62 +43,7 @@ public class ScheduleDialogFragment extends DialogFragment {
         classRoom = view.findViewById(R.id.class_room);
         classDay = view.findViewById(R.id.class_day);
         classTime = view.findViewById(R.id.class_time);
-//
-//        monday[0] = getActivity().findViewById(R.id.mondayA);
-//        monday[1] = getActivity().findViewById(R.id.mondayB);
-//        monday[2] = getActivity().findViewById(R.id.mondayC);
-//        monday[3] = getActivity().findViewById(R.id.mondayD);
-//        monday[4] = getActivity().findViewById(R.id.mondayE);
-//        monday[5] = getActivity().findViewById(R.id.mondayF);
-//        monday[6] = getActivity().findViewById(R.id.mondayG);
-//        monday[7] = getActivity().findViewById(R.id.mondayH);
-//
-//        tuesday[0] = getActivity().findViewById(R.id.tuesdayA);
-//        tuesday[1] = getActivity().findViewById(R.id.tuesdayB);
-//        tuesday[2] = getActivity().findViewById(R.id.tuesdayC);
-//        tuesday[3] = getActivity().findViewById(R.id.tuesdayD);
-//        tuesday[4] = getActivity().findViewById(R.id.tuesdayE);
-//        tuesday[5] = getActivity().findViewById(R.id.tuesdayF);
-//        tuesday[6] = getActivity().findViewById(R.id.tuesdayG);
-//        tuesday[7] = getActivity().findViewById(R.id.tuesdayH);
-//
-//        wednesday[0] = getActivity().findViewById(R.id.wednesdayA);
-//        wednesday[1] = getActivity().findViewById(R.id.wednesdayB);
-//        wednesday[2] = getActivity().findViewById(R.id.wednesdayC);
-//        wednesday[3] = getActivity().findViewById(R.id.wednesdayD);
-//        wednesday[4] = getActivity().findViewById(R.id.wednesdayE);
-//        wednesday[5] = getActivity().findViewById(R.id.wednesdayF);
-//        wednesday[6] = getActivity().findViewById(R.id.wednesdayG);
-//        wednesday[7] = getActivity().findViewById(R.id.wednesdayH);
-//
-//        thursday[0] = getActivity().findViewById(R.id.thursdayA);
-//        thursday[1] = getActivity().findViewById(R.id.thursdayB);
-//        thursday[2] = getActivity().findViewById(R.id.thursdayC);
-//        thursday[3] = getActivity().findViewById(R.id.thursdayD);
-//        thursday[4] = getActivity().findViewById(R.id.thursdayE);
-//        thursday[5] = getActivity().findViewById(R.id.thursdayF);
-//        thursday[6] = getActivity().findViewById(R.id.thursdayG);
-//        thursday[7] = getActivity().findViewById(R.id.thursdayH);
-//
-//        friday[0] = getActivity().findViewById(R.id.fridayA);
-//        friday[1] = getActivity().findViewById(R.id.fridayB);
-//        friday[2] = getActivity().findViewById(R.id.fridayC);
-//        friday[3] = getActivity().findViewById(R.id.fridayD);
-//        friday[4] = getActivity().findViewById(R.id.fridayE);
-//        friday[5] = getActivity().findViewById(R.id.fridayF);
-//        friday[6] = getActivity().findViewById(R.id.fridayG);
-//        friday[7] = getActivity().findViewById(R.id.fridayH);
 
-
-//        for (int i = 0; i < 7; i++) {
-
-//            monday[i] = "";
-//            tuesday[i] = "";
-//            wednesday[i] = "";
-//            thursday[i] = "";
-//            friday[i] = "";
-//
-//        }
         return alertDialog
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
@@ -129,7 +61,6 @@ public class ScheduleDialogFragment extends DialogFragment {
                         System.out.println(schedule.getClassTime());
 
                         mDialogResult.finish(schedule);
-
 //                        createView(schedule.getClassName(), schedule.getClassRoom(), schedule.getClassDay(), schedule.getClassTime());
                     }
                 })

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/toolbar_schedule"
+        android:background="#6CABDD">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="26sp"
+            android:text="SCHEDULE"
+            android:id="@+id/toolbar_title" />
+        <ImageButton
+            android:id="@+id/writing_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/pencil" />
+    </android.support.v7.widget.Toolbar>
+
+
+
+</LinearLayout>
