@@ -13,9 +13,10 @@ import android.widget.Button;
 public class NoticeFragment extends ToolBarFragment {
 
     private Button UniNoticeButton;
+    private Button scheduleButton;
     private Button majorNoticeButton;
     private Button foodButton;
-    private Button scheduleButton;
+    private Button noticeButton;
 
 //    @NonNull
 //    public static NoticeFragment newInstance() {
@@ -31,11 +32,20 @@ public class NoticeFragment extends ToolBarFragment {
         majorNoticeButton = view.findViewById(R.id.major_notice_button);
         foodButton = view.findViewById(R.id.food_button);
         scheduleButton = view.findViewById(R.id.university_schedule_button);
+        noticeButton = view.findViewById(R.id.notice_button2);
 
         UniNoticeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ajou.ac.kr/new/ajou/notice.jsp"));
+                intent.setPackage("com.android.chrome");
+                startActivity(intent);
+            }
+        });
+        noticeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://it.ajou.ac.kr/it/community/community01.jsp"));
                 intent.setPackage("com.android.chrome");
                 startActivity(intent);
             }
