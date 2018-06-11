@@ -4,18 +4,42 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.applandeo.materialcalendarview.EventDay;
+import com.example.parksinyoung.moblieprogramming_syjy.singleton.CalendarSingle;
 
 import java.util.Calendar;
 
 public class MyEventDay extends EventDay implements Parcelable {
+    private int year;
+    private int mon;
+    private int day;
     private String mNote;
-    MyEventDay(Calendar day, int imageResource, String note) {
-        super(day, imageResource);
+    
+    public MyEventDay(Calendar dayc, int imageResource, String note) {
+        super(dayc, imageResource);
+        year = dayc.get(Calendar.YEAR);
+        mon = dayc.get(Calendar.MONTH)+1;
+        day = dayc.get(Calendar.DAY_OF_MONTH);
         mNote = note;
+//        Log.i("년",String.valueOf(year));
+//        Log.i("달",String.valueOf(mon));
+//        Log.i("일",String.valueOf(day));
     }
+
     String getNote() {
         return mNote;
     }
+    public int getYear() {
+        return this.year;
+    }
+
+    public int getMonth() {
+        return this.mon;
+    }
+
+    public int getDay() {
+        return this.day;
+    }
+
     private MyEventDay(Parcel in) {
         super((Calendar) in.readSerializable(), in.readInt());
         mNote = in.readString();

@@ -15,7 +15,7 @@ public class Post {
     private int commentCount;
 
     public Post() {
-
+        // Default constructor required for calls to DataSnapshot.getValue(Post.class)
     }
 
     public String getTitle() {

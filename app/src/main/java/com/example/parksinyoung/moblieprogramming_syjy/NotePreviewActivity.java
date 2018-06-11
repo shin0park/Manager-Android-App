@@ -15,6 +15,9 @@ public class NotePreviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_preview);
         Intent intent = getIntent();
+        //이후 텍스트뷰 설정을 위한 intent
+        Intent putintet = new Intent(this, CalendarActivity.class);
+
         TextView note = (TextView) findViewById(R.id.note);
         if (intent != null) {
             Object event = intent.getParcelableExtra(CalendarActivity.EVENT);
