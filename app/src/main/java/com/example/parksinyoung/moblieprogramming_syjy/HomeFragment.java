@@ -30,6 +30,10 @@ public class HomeFragment extends ToolBarFragment {
     private TextView todayText;
     private TextView resultText;
     private Button dateButton;
+    private TextView ddayText2;
+    private TextView resultText2;
+    private Button dateButton2;
+    private int chek=1;
 
     private int tYear;           //오늘 연월일 변수
     private int tMonth;
@@ -60,6 +64,21 @@ public class HomeFragment extends ToolBarFragment {
         resultText=(TextView)view.findViewById(R.id.result);
         dateButton=(Button)view.findViewById(R.id.dateButton);
         dateButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick( View v ) {
+                // TODO Auto-generated method stub
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), dDateSetListener, tYear, tMonth, tDay);
+                datePickerDialog.show();
+                chek=1;
+
+            }
+        });
+        ddayText2 = view.findViewById(R.id.dday2);
+        resultText2 = view.findViewById(R.id.result2);
+        dateButton2 = view.findViewById(R.id.dateButton2);
+        dateButton2.setOnClickListener(new View.OnClickListener() {
+
 
             @Override
             public void onClick(View v) {
@@ -107,6 +126,16 @@ public class HomeFragment extends ToolBarFragment {
             int absR=Math.abs(resultNumber);
             resultText.setText(String.format("D+%d", absR));
         }
+        else if(chek==2) {
+            ddayText2.setText(String.format("%d년 %d월 %d일", dYear, dMonth + 1, dDay));
+
+            if (resultNumber >= 0) {
+                resultText2.setText(String.format("D-%d", resultNumber));
+            } else {
+                int absR = Math.abs(resultNumber);
+                resultText2.setText(String.format("D+%d", absR));
+            }
+        }
     }//디데이 날짜가 오늘날짜보다 뒤에오면 '-', 앞에오면 '+'를 붙인다
 
     private DatePickerDialog.OnDateSetListener dDateSetListener=new DatePickerDialog.OnDateSetListener() {
@@ -129,15 +158,6 @@ public class HomeFragment extends ToolBarFragment {
         }
     };
 
-
-//    @Override
-//    protected Dialog onCreateDialog( int id){
-//        if(id==DATE_DIALOG_ID){
-//            return new DatePickerDialog(this,dDateSetListener,tYear,tMonth,tDay);
-//
-//        }
-//        return null;
-//    }
 
 
 

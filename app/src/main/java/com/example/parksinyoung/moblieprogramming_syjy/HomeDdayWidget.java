@@ -2,7 +2,7 @@ package com.example.parksinyoung.moblieprogramming_syjy;
 
 import java.util.Calendar;
 
-public class Dday {
+public class HomeDdayWidget {
     public int caldate(int myear, int mmonth, int mday) {
         try {
             Calendar today = Calendar.getInstance();//현재 오늘 날짜

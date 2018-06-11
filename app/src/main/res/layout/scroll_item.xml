@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/Dday"
-            android:layout_width="380dp"
+            android:layout_width="391dp"
             android:layout_height="122dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
@@ -60,6 +60,7 @@
             android:background="@drawable/shape_round"
             android:backgroundTint="@color/colorBackground"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.478"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/today" />
 
@@ -95,37 +96,71 @@
 
         <TextView
             android:id="@+id/dday"
-            android:layout_width="wrap_content"
-            android:layout_height="37dp"
+            android:layout_width="131dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
             android:text="TextView"
             android:textColor="@color/textcolor"
-            tools:layout_editor_absoluteX="80dp"
-            tools:layout_editor_absoluteY="203dp" />
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/dateButton"
+            app:layout_constraintTop_toTopOf="@+id/Dday" />
+
+        <TextView
+            android:id="@+id/dday2"
+            android:layout_width="131dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="12dp"
+            android:text="TextView"
+            android:textColor="@color/textcolor"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/Dday"
+            app:layout_constraintStart_toEndOf="@+id/dateButton2" />
 
         <EditText
             android:id="@+id/today"
             android:layout_width="wrap_content"
             android:layout_height="27dp"
-            android:layout_marginEnd="164dp"
+            android:layout_marginEnd="84dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="60dp"
             android:background="@null"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
-            android:id="@+id/result"
-            android:layout_width="wrap_content"
-            android:layout_height="37dp"
+            android:id="@+id/result2"
+            android:layout_width="97dp"
+            android:layout_height="38dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="8dp"
             android:text="TextView"
             android:textColor="@color/textcolor"
-            tools:layout_editor_absoluteX="218dp"
-            tools:layout_editor_absoluteY="232dp" />
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/Dday"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dday2" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="97dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="@color/textcolor"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dday"
+            app:layout_constraintTop_toTopOf="@+id/Dday" />
 
         <EditText
             android:id="@+id/today_notice"
@@ -137,7 +172,8 @@
             android:background="@null"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name"
+            android:text="주요정보"
+            android:textColor="@color/textcolor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.053"
             app:layout_constraintStart_toStartOf="parent"
@@ -145,21 +181,62 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="43dp"
+            android:layout_height="52dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/book"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/today" />
+
+        <Button
+            android:id="@+id/dateButton2"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="66dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorBackground"
+            android:text="계산하기"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/dateButton" />
 
         <Button
             android:id="@+id/dateButton"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="66dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorBackground"
+            android:text="계산하기"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/Dday" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="42dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/heart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/textView7"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="247dp" />
+            android:layout_height="20dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="68dp"
+            android:text="오늘은"
+            android:textColor="@color/textcolor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     </android.support.constraint.ConstraintLayout>
 

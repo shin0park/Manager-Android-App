@@ -30,7 +30,7 @@ public abstract class CommonBoardFragment extends Fragment {
     @Override
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_base_board, container, false);
+        View view = inflater.inflate(R.layout.fragment_common_board, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.board_recycler_view);
         setHasOptionsMenu(true);
 
