@@ -2,8 +2,8 @@
 <resources>
     <color name="colorPrimary">#e96b64</color>
     <color name="colorSchedule">#EA6C68</color>
-    <color name="colorPrimaryDark">#453F41</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimaryDark">#9c7070</color>
+    <color name="colorAccent">#e96b64</color>
     <color name="bottom_section_color">#a6a6a6</color>
     <color name="colorGray">#a6a6a6</color>
     <color name="colorPink">#FDC2BE</color>
