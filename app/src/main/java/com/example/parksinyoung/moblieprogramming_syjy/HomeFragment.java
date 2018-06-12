@@ -2,6 +2,8 @@ package com.example.parksinyoung.moblieprogramming_syjy;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Calendar;
@@ -28,6 +31,10 @@ public class HomeFragment extends ToolBarFragment {
 
     private TextView name;
     private TextView email;
+
+
+    private ImageView phone;
+    private ImageView food;
 
     private TextView ddayText;
     private TextView todayText;
@@ -61,13 +68,31 @@ public class HomeFragment extends ToolBarFragment {
     public View onCreateView( LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState ) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         setToolbar();
-
+        phone = view.findViewById(R.id.phone);
+        food = view.findViewById(R.id.food);
+        phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ajou.ac.kr/new/phone/contact01.jsp"));
+                intent.setPackage("com.android.chrome");
+                startActivity(intent);
+            }
+        });
+        food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ajou.ac.kr/kr/life/food.jsp"));
+                intent.setPackage("com.android.chrome");
+                startActivity(intent);
+            }
+        });
         name=view.findViewById(R.id.name);
         email=view.findViewById(R.id.email);
         ddayText=view.findViewById(R.id.dday);
         todayText=(TextView)view.findViewById(R.id.today);
         resultText=(TextView)view.findViewById(R.id.result);
         dateButton=(Button)view.findViewById(R.id.dateButton);
+
         dateButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
