@@ -33,23 +33,6 @@
             android:background="@drawable/shape_round"
             android:backgroundTint="@color/colorBackground"/>
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="167dp"
-            android:layout_height="39dp"
-            android:layout_marginEnd="108dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@null"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:textColor="@color/textcolor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/Dday"
             android:layout_width="391dp"
@@ -76,23 +59,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/today_notice" />
-
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="248dp"
-            android:layout_height="39dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@null"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:text="email@google.com"
-            android:textColor="@color/textcolor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.841"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <TextView
             android:id="@+id/dday"
@@ -237,6 +203,32 @@
             android:textColor="@color/textcolor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="256dp"
+            android:layout_height="31dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="52dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.928"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="74dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.35"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView" />
 
     </android.support.constraint.ConstraintLayout>
 

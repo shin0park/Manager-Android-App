@@ -26,6 +26,9 @@ public class HomeFragment extends ToolBarFragment {
 //        return new HomeFragment();
 //    }
 
+    private TextView name;
+    private TextView email;
+
     private TextView ddayText;
     private TextView todayText;
     private TextView resultText;
@@ -59,6 +62,8 @@ public class HomeFragment extends ToolBarFragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         setToolbar();
 
+        name=view.findViewById(R.id.name);
+        email=view.findViewById(R.id.email);
         ddayText=view.findViewById(R.id.dday);
         todayText=(TextView)view.findViewById(R.id.today);
         resultText=(TextView)view.findViewById(R.id.result);
