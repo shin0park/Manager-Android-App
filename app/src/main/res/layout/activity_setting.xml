@@ -23,9 +23,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="setting"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="SETTING"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/campton_lightdemo"/>
 
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>

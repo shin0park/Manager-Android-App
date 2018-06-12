@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        replaceFragment(sHomeFragment);
+        toolbarText.setText("HOME");
         BottomNavigationView bottomNavigationView = findViewById(R.id.main_bnv);
 
         BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
@@ -76,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_three://캘린더
                         Intent calenderIntent = new Intent(MainActivity.this, CalendarActivity.class);
                         startActivity(calenderIntent);
-                        replaceFragment(sHomeFragment);
                         toolbarText.setText("HOME");
                         return true;
                     case R.id.action_four://공지
@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_five://게시판
                         Intent boardIntent = new Intent(MainActivity.this, BoardActivity.class);
                         startActivity(boardIntent);
-                        replaceFragment(sHomeFragment);
                         toolbarText.setText("HOME");
                         return true;
                 }

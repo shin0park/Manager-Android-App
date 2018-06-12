@@ -117,14 +117,16 @@ public class HomeFragment extends ToolBarFragment {
     private void updateDisplay(){
 
         todayText.setText(String.format("%d년 %d월 %d일",tYear, tMonth+1,tDay));
-        ddayText.setText(String.format("%d년 %d월 %d일",dYear, dMonth+1,dDay));
+        if(chek==1) {
+            ddayText.setText(String.format("%d년 %d월 %d일",dYear, dMonth+1,dDay));
 
-        if(resultNumber>=0){
-            resultText.setText(String.format("D-%d", resultNumber));
-        }
-        else{
-            int absR=Math.abs(resultNumber);
-            resultText.setText(String.format("D+%d", absR));
+            if(resultNumber>=0){
+                resultText.setText(String.format("D-%d", resultNumber));
+            }
+            else{
+                int absR=Math.abs(resultNumber);
+                resultText.setText(String.format("D+%d", absR));
+            }
         }
         else if(chek==2) {
             ddayText2.setText(String.format("%d년 %d월 %d일", dYear, dMonth + 1, dDay));
