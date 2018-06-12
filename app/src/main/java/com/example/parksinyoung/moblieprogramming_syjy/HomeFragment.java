@@ -26,6 +26,9 @@ public class HomeFragment extends ToolBarFragment {
 //        return new HomeFragment();
 //    }
 
+    private TextView name;
+    private TextView email;
+
     private TextView ddayText;
     private TextView todayText;
     private TextView resultText;
@@ -59,6 +62,8 @@ public class HomeFragment extends ToolBarFragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         setToolbar();
 
+        name=view.findViewById(R.id.name);
+        email=view.findViewById(R.id.email);
         ddayText=view.findViewById(R.id.dday);
         todayText=(TextView)view.findViewById(R.id.today);
         resultText=(TextView)view.findViewById(R.id.result);
@@ -81,40 +86,43 @@ public class HomeFragment extends ToolBarFragment {
 
 
             @Override
-            public void onClick(View v) {
+            public void onClick( View v ) {
                 // TODO Auto-generated method stub
-                getActivity().showDialog(0);
+                DatePickerDialog datePickerDialog2 = new DatePickerDialog(getActivity(), dDateSetListener, tYear, tMonth, tDay);
+                datePickerDialog2.show();
+                chek=2;
             }
         });
-        Calendar calendar =Calendar.getInstance();              //현재 날짜 불러옴
+        Calendar calendar = Calendar.getInstance();              //현재 날짜 불러옴
         tYear = calendar.get(Calendar.YEAR);
         tMonth = calendar.get(Calendar.MONTH);
         tDay = calendar.get(Calendar.DAY_OF_MONTH);
 
-        Calendar dCalendar =Calendar.getInstance();
-        dCalendar.set(dYear,dMonth, dDay);
+        Calendar dCalendar = Calendar.getInstance();
+        dCalendar.set(dYear, dMonth, dDay);
 
-        t=calendar.getTimeInMillis();                 //오늘 날짜를 밀리타임으로 바꿈
-        d=dCalendar.getTimeInMillis();              //디데이날짜를 밀리타임으로 바꿈
-        r=(d-t)/(24*60*60*1000);                 //디데이 날짜에서 오늘 날짜를 뺀 값을 '일'단위로 바꿈
+        t = calendar.getTimeInMillis();                 //오늘 날짜를 밀리타임으로 바꿈
+        d = dCalendar.getTimeInMillis();              //디데이날짜를 밀리타임으로 바꿈
+        r = (d - t) / (24 * 60 * 60 * 1000);                 //디데이 날짜에서 오늘 날짜를 뺀 값을 '일'단위로 바꿈
 
-        resultNumber=(int)r+1;
+        resultNumber = (int) r + 1;
         updateDisplay();
 
         return view;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+    public boolean onOptionsItemSelected( MenuItem item ) {
+        switch (item.getItemId()) {
+            case android.R.id.home: { //toolbar의 back키 눌렀을 때 동작
                 getActivity().finish();
                 return true;
             }
         }
         return super.onOptionsItemSelected(item);
     }
-    private void updateDisplay(){
+
+    private void updateDisplay() {
 
         todayText.setText(String.format("%d년 %d월 %d일",tYear, tMonth+1,tDay));
         if(chek==1) {
@@ -146,16 +154,16 @@ public class HomeFragment extends ToolBarFragment {
         public void onDateSet( DatePicker view, int year, int monthOfYear,
                                int dayOfMonth) {
             // TODO Auto-generated method stub
-            dYear=year;
-            dMonth=monthOfYear;
-            dDay=dayOfMonth;
-            final Calendar dCalendar =Calendar.getInstance();
-            dCalendar.set(dYear,dMonth, dDay);
+            dYear = year;
+            dMonth = monthOfYear;
+            dDay = dayOfMonth;
+            final Calendar dCalendar = Calendar.getInstance();
+            dCalendar.set(dYear, dMonth, dDay);
 
-            d=dCalendar.getTimeInMillis();
-            r=(d-t)/(24*60*60*1000);
+            d = dCalendar.getTimeInMillis();
+            r = (d - t) / (24 * 60 * 60 * 1000);
 
-            resultNumber=(int)r;
+            resultNumber = (int) r;
             updateDisplay();
         }
     };
@@ -164,6 +172,5 @@ public class HomeFragment extends ToolBarFragment {
 
 
 }
-
 
 
