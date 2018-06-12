@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_three://캘린더
                         Intent calenderIntent = new Intent(MainActivity.this, CalendarActivity.class);
                         startActivity(calenderIntent);
-                        toolbarText.setText("HOME");
+                     //   toolbarText.setText("HOME");
                         return true;
                     case R.id.action_four://공지
                         replaceFragment(sNoticeFragment);
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_five://게시판
                         Intent boardIntent = new Intent(MainActivity.this, BoardActivity.class);
                         startActivity(boardIntent);
-                        toolbarText.setText("HOME");
+                       // toolbarText.setText("HOME");
                         return true;
                 }
                 return false;
