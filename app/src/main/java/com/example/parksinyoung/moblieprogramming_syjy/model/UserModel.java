@@ -33,6 +33,8 @@ public class UserModel {
                     User.getInstance().setUid(user.getUid());
                     User.getInstance().setEmail(user.getEmail());
                     User.getInstance().setDisabled(Objects.requireNonNull(dataSnapshot.getValue(User.class)).isDisabled());
+//                    suser.setUserName(user.getDisplayName());
+    //                suser.setEmail(user.getEmail());
                 }
             }
 

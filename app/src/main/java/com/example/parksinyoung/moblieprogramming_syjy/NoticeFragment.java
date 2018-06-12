@@ -59,14 +59,6 @@ public class NoticeFragment extends ToolBarFragment {
                 startActivity(intent);
             }
         });
-//        foodButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ajou.ac.kr/kr/life/food.jsp"));
-//                intent.setPackage("com.android.chrome");
-//                startActivity(intent);
-//            }
-//        });
         scheduleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

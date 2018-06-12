@@ -32,15 +32,8 @@ public class BoardActivity extends AppCompatActivity {
         toolbarText.setText("NOTICE BOARD");
         FragmentManager fm = getSupportFragmentManager();
 
-       // toolbarFragment = new ToolbarFragment2();
-        //fm.beginTransaction().add(R.id.fragment_board_toolbar_container, toolbarFragment).commit();
         fm.beginTransaction().add(R.id.fragment_board_container, new BoardTabFragment()).commit();
     }
-
-//    public void setToolbarTitle(String title) {
-//        ((ToolbarFragment2) toolbarFragment).setToolbarTitle(title);
-//    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){

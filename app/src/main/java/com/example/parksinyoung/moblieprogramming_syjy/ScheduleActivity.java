@@ -44,14 +44,6 @@ public class ScheduleActivity extends AppCompatActivity {
                 dialogFragment.show(manager, DIALOG_SCHEDULE);
             }
         });
-//        view.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                FragmentManager manager = getFragmentManager();
-//                ScheduleDialogFragment dialogFragment = new ScheduleDialogFragment();
-//                dialogFragment.show(manager,DIALOG_SCHEDULE);
-//            }
-//        });
     }
 
     @Override

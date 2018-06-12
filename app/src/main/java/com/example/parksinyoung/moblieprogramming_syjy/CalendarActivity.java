@@ -62,11 +62,6 @@ public class CalendarActivity extends AppCompatActivity {
         mCalendarView.setDate(calendar1);
         mCalendarView.setEvents(eventDay);
 
-//        Calendar calendar1 = Calendar.getInstance();
-//        calendar1.set(2018,7-1,11);
-//        mCalendarView.setDate(calendar1);
-//        mEventDays.add(new MyEventDay(calendar1,R.drawable.ic_message_black_48dp,"원래있던메모"));
-
         this.mSchedules = scheduleModel.getSchedules();
 
         this.gCalendarSingles = calendarModel.getmCalendars();

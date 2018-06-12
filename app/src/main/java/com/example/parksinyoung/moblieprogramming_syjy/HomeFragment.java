@@ -20,6 +20,10 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.parksinyoung.moblieprogramming_syjy.singleton.User;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.Calendar;
 
 public class HomeFragment extends ToolBarFragment {
@@ -29,12 +33,15 @@ public class HomeFragment extends ToolBarFragment {
 //        return new HomeFragment();
 //    }
 
-    private TextView name;
+    private TextView tname;
     private TextView email;
 
 
     private ImageView phone;
-    private ImageView food;
+    private ImageView foodi;
+    private ImageView bus;
+    private ImageView homepage;
+
 
     private TextView ddayText;
     private TextView todayText;
@@ -62,6 +69,9 @@ public class HomeFragment extends ToolBarFragment {
 
     static final int DATE_DIALOG_ID=0;
 
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//    private User user;
+
 
     @Nullable
     @Override
@@ -69,7 +79,15 @@ public class HomeFragment extends ToolBarFragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         setToolbar();
         phone = view.findViewById(R.id.phone);
-        food = view.findViewById(R.id.food);
+        foodi = view.findViewById(R.id.food);
+        //bus = view.findViewById(R.id.bus);
+        //homepage = view.findViewById(R.id.homepage);
+
+
+//        user.getInstance().setUserName(userf.getDisplayName());
+     //   user.getInstance().setEmail(userf.getEmail());
+     //   tname.setText(user.getUserName());
+    //    email.setText(user.getEmail());
         phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,7 +96,8 @@ public class HomeFragment extends ToolBarFragment {
                 startActivity(intent);
             }
         });
-        food.setOnClickListener(new View.OnClickListener() {
+
+        foodi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ajou.ac.kr/kr/life/food.jsp"));
@@ -86,12 +105,32 @@ public class HomeFragment extends ToolBarFragment {
                 startActivity(intent);
             }
         });
-        name=view.findViewById(R.id.name);
+
+//        bus.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.ajou.ac.kr/kr/life/bus01.jsp"));
+//                intent.setPackage("com.android.chrome");
+//                startActivity(intent);
+//            }
+//        });
+
+//        homepage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://eclass2.ajou.ac.kr/"));
+//                intent.setPackage("com.android.chrome");
+//                startActivity(intent);
+//            }
+//        });
+        tname=view.findViewById(R.id.name);
         email=view.findViewById(R.id.email);
         ddayText=view.findViewById(R.id.dday);
-        todayText=(TextView)view.findViewById(R.id.today);
-        resultText=(TextView)view.findViewById(R.id.result);
-        dateButton=(Button)view.findViewById(R.id.dateButton);
+        todayText=view.findViewById(R.id.today);
+        resultText=view.findViewById(R.id.result);
+        dateButton=view.findViewById(R.id.dateButton);
+        tname.setText(user.getDisplayName());
+        email.setText(user.getEmail());
 
         dateButton.setOnClickListener(new View.OnClickListener() {
 
@@ -192,6 +231,9 @@ public class HomeFragment extends ToolBarFragment {
             updateDisplay();
         }
     };
+    public void setName(String name) {
+        tname.setText(name);
+    }
 
 
 

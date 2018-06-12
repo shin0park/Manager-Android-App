@@ -44,7 +44,7 @@ public class CommentListActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(commentEdit.getText().toString())) {
                     Snackbar snackbar = Snackbar.make(sendButton, "댓글을 입력하세요", Snackbar.LENGTH_SHORT);
                     View sbView = snackbar.getView();
-                    sbView.setBackgroundColor(Color.parseColor("#6CABDD"));
+                    sbView.setBackgroundColor(Color.parseColor("#F1B3B8"));
                     snackbar.show();
                     return;
                 }

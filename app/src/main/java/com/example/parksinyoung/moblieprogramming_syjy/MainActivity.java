@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.parksinyoung.moblieprogramming_syjy.model.UserModel;
+import com.example.parksinyoung.moblieprogramming_syjy.singleton.User;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private static ScheduleFragment scheduleFragment = new ScheduleFragment();
     private static NoticeFragment sNoticeFragment = new NoticeFragment();
     private static CalendarActivity calendarActivity= new CalendarActivity();
+    private UserModel user1 = new UserModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        user1.readUserData();
+//        sHomeFragment.setName(GoogleLoginActivity.getN());//없음
+//        Log.i("이름",user.getUserName());;//없음
         replaceFragment(sHomeFragment);
         toolbarText.setText("HOME");
         BottomNavigationView bottomNavigationView = findViewById(R.id.main_bnv);

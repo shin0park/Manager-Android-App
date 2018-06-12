@@ -37,6 +37,8 @@ public class GoogleLoginActivity extends AppCompatActivity
     private static final int RC_SIGN_IN = 9001;
     private ImageView logoImageView;
     private SignInButton loginButton;
+    public String gname;
+    public String gemail;
 
 
     @Override
@@ -89,6 +91,8 @@ public class GoogleLoginActivity extends AppCompatActivity
                 if (result.isSuccess()) {
                     // 로그인 성공 했을때
                     GoogleSignInAccount account = result.getSignInAccount();
+                    gname=account.getDisplayName();
+                    gemail=account.getEmail();
                     String personName = account.getDisplayName();
                     String personEmail = account.getEmail();
                     String personId = account.getId();
