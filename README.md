@@ -6,3 +6,4 @@
 ![0003](https://user-images.githubusercontent.com/38244852/82033190-5798fb00-96d7-11ea-9be9-221faa9d9925.jpg)
 ![0004](https://user-images.githubusercontent.com/38244852/82033194-58ca2800-96d7-11ea-8400-3164b7999957.jpg)
 ![0005](https://user-images.githubusercontent.com/38244852/82033207-5b2c8200-96d7-11ea-9bb9-4337f5b48e32.jpg)
+<img width="1072" alt="manager-img" src="https://user-images.githubusercontent.com/38244852/94988349-75dc9600-05a7-11eb-939e-e6263f0e5233.png">
